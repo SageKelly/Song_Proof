@@ -15,73 +15,38 @@
             <Setter Property="FontSize" Value="90"/>
             <Setter Property="MinWidth" Value="60"/>
             <Setter Property="MinHeight" Value="60"/>
+            <Setter Property="Canvas.ZIndex" Value="-3"/>
+            <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
         <Style x:Name="TBArrowStyle" TargetType="TextBlock" BasedOn="{StaticResource TBStyle}">
             <!--<Setter Property="FontSize" Value="56"/>-->
             <Setter Property="FontSize" Value="74"/>
         </Style>
         <Storyboard x:Name="SlideLeft">
-        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="grid">
-        		<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-        		<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-318">
-        			<EasingDoubleKeyFrame.EasingFunction>
-        				<ExponentialEase EasingMode="EaseInOut"/>
-        			</EasingDoubleKeyFrame.EasingFunction>
-        		</EasingDoubleKeyFrame>
-        	</DoubleAnimationUsingKeyFrames>
-        </Storyboard>
-        <Storyboard x:Name="SlideRight">
-        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="grid">
-        		<EasingDoubleKeyFrame KeyTime="0" Value="-318"/>
-        		<EasingDoubleKeyFrame KeyTime="0:0:0.05" Value="318"/>
-        	</DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="grid">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-318">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <ExponentialEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
         </Storyboard>
     </UserControl.Resources>
     <Grid x:Name="grid" Background="Black" RenderTransformOrigin="0.5,0.5">
-    	<VisualStateManager.VisualStateGroups>
-    		<VisualStateGroup x:Name="SlidingTranslation">
-    			<VisualStateGroup.Transitions>
-    				<VisualTransition From="Shown" GeneratedDuration="0" To="Hiding"/>
-    			</VisualStateGroup.Transitions>
-    			<VisualState x:Name="Shown">
-    				<Storyboard>
-    					<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="grid">
-    						<EasingDoubleKeyFrame KeyTime="0" Value="318"/>
-    						<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0">
-    							<EasingDoubleKeyFrame.EasingFunction>
-    								<ExponentialEase EasingMode="EaseOut" Exponent="3"/>
-    							</EasingDoubleKeyFrame.EasingFunction>
-    						</EasingDoubleKeyFrame>
-    					</DoubleAnimationUsingKeyFrames>
-    				</Storyboard>
-    			</VisualState>
-    			<VisualState x:Name="Hiding">
-    				<Storyboard>
-    					<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="grid">
-    						<EasingDoubleKeyFrame KeyTime="0" Value="-318"/>
-    						<EasingDoubleKeyFrame KeyTime="0:0:0.05" Value="318"/>
-    					</DoubleAnimationUsingKeyFrames>
-    				</Storyboard>
-    			</VisualState>
-    		</VisualStateGroup>
-    	</VisualStateManager.VisualStateGroups>
-    	<Grid.RenderTransform>
-    		<CompositeTransform/>
-    	</Grid.RenderTransform>
+        <Grid.RenderTransform>
+            <CompositeTransform/>
+        </Grid.RenderTransform>
         <!--<Grid>-->
-            <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="106"/>
-            <ColumnDefinition Width="106"/>
-            <ColumnDefinition Width="106"/>
+        <Grid.ColumnDefinitions>
         </Grid.ColumnDefinitions>
-        <TextBlock x:Name="Note1" Grid.Column="0" Grid.Row="1" Style="{StaticResource TBStyle}"
-                               Text="{Binding Note1Var,Mode=OneWay,FallbackValue=N♯}" RenderTransformOrigin="0.5,0.5"
-                               Canvas.ZIndex="-3" VerticalAlignment="Center"/>
-        <TextBlock x:Name="Arrow1" Grid.Column="1" Grid.Row="1" Style="{StaticResource TBArrowStyle}"
-                               Text="→" Canvas.ZIndex="-3" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center"/>
-
-        <TextBlock x:Name="Note2"  Grid.Column="2" Grid.Row="1" Style="{StaticResource TBStyle}"
-                               Text="{Binding Note2Var, Mode=OneWay,FallbackValue=N♭}" Canvas.ZIndex="-3"
-                               RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center"/>
+        <ListView>
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel x:Name="NoteStack" Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+        </ListView>
     </Grid>
 </UserControl>

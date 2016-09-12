@@ -13,6 +13,8 @@ namespace SongProofWP8
             Dummy,
             BuildTheScale,
             PlacingTheNote,
+            FindTheVoice,
+            BuildTheChord,
             HW3,
             GrabBag,
             ScaleWriting

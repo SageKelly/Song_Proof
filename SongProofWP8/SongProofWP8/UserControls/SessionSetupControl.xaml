@@ -184,8 +184,12 @@
             </Setter>
         </Style>
     </UserControl.Resources>
-    <Grid Margin="19,9.5,19,0">
-        <StackPanel>
+    <Grid Margin="19,9.5,19,0" Background="Black">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
             <ComboBox x:Name="CBScaleGroups" ItemsSource="{Binding}" PlaceholderText="Scale Group" SelectionChanged="ConfirmSelection"
                       SelectedItem="{Binding SelectedScaleGroup,Mode=TwoWay}"/>
             <StackPanel x:Name="SPScaleKey" Orientation="Vertical">
@@ -207,6 +211,14 @@
                 </StackPanel>
             </Border>
         </StackPanel>
-        <Button x:Name="BStart" Click="BStart_Click" Style="{StaticResource ButtonStyle}" VerticalAlignment="Bottom" Content="Next"/>
+        <Grid Grid.Row="1" VerticalAlignment="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+        <Button x:Name="BSet" Click="BSet_Previous" Grid.Column="0" Style="{StaticResource ButtonStyle}"
+                HorizontalAlignment="Left" VerticalAlignment="Bottom" Content="Last Settings" Margin="4,0"/>                                                  
+        <Button x:Name="BStart" Click="BStart_Click" Grid.Column="1" HorizontalAlignment="Right" Style="{StaticResource ButtonStyle}" VerticalAlignment="Bottom" Content="Next" Margin="4,0"/>
+        </Grid>
     </Grid>
 </UserControl>
