@@ -8,6 +8,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Phone.UI.Input;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -36,6 +37,15 @@ namespace SongProofWP8.Pages
         private const string IH = "H";
         private const string IW = "W";
         private const string I3 = "-3";
+
+        /// <summary>
+        /// Represents the last button that was styled via validation
+        /// </summary>
+        private Button lastStyledButton;
+
+        private SolidColorBrush XBrush;
+        private SolidColorBrush CheckBrush;
+        private SolidColorBrush DefaultBrush;
 
         #region Properties
         public Session curSession { get; private set; }
@@ -104,6 +114,25 @@ namespace SongProofWP8.Pages
         public SessionPage()
         {
             this.InitializeComponent();
+
+            XBrush = new SolidColorBrush(new Color()
+            {
+                //#FFB60000
+                R = 182,
+                G = 0,
+                B = 0,
+                A = 255
+            });
+
+            CheckBrush = new SolidColorBrush(new Color()
+            {
+                //#FF5BD419
+                R = 91,
+                G = 212,
+                B = 25,
+                A = 255
+            });
+
             curSession = DataHolder.SM.CurrentSession;
             if (DataHolder.ProofType == DataHolder.ProofingTypes.PlacingTheNote)
             {
@@ -162,7 +191,7 @@ namespace SongProofWP8.Pages
             switch (DataHolder.ProofType)
             {
                 case DataHolder.ProofingTypes.PlacingTheNote:
-                    ptc = new ProgressTrackerControl("Note Amount", "TickDownTimer_Tick", this, typeof(SessionPage));
+                    ptc = new ProgressTrackerControl("Note Amount", "TimerComplete", this, typeof(SessionPage));
                     LayoutRoot.Children.Add(ptc);
                     Grid.SetRow(ptc, 1);
                     break;
@@ -206,31 +235,44 @@ namespace SongProofWP8.Pages
         #endregion
 
         #region Particular Methods
-        #region Placing The Note
-        private void TickDownTimer_Tick(object sender)
+
+        private void StyleButton(Button b, bool correct)
         {
-            ptc.RemainingTime -= ptc.CountingDown ? 1000 : 100;
-            if (ptc.RemainingTime == 0)
+            if (lastStyledButton != null)
             {
-                if (ptc.CountingDown)
-                {
-                    ptc.CountingDown = false;
-                    ptc.SetTimerInterval(TimeSpan.Parse("00:00:0.100"));
-                }
-                if (curIndex > 0)
-                {
-                    //you ran out of time on the last note
-                    RecordData(NoteIndex, false);
-                }
-                NextNote();
+                lastStyledButton.Background = DefaultBrush;
             }
+
+            b.Background = correct ? CheckBrush : XBrush;
+
+            lastStyledButton = b;
         }
+
+        #region Placing The Note
+        private void TimerComplete(object sender)
+        {
+            if (ptc.CountingDown)
+            {
+                ptc.CountingDown = false;
+                ptc.SetTimerInterval(DataHolder.SM.CurrentSession.Diff.GetHashCode());
+            }
+            if (curIndex > 0)
+            {
+                //you ran out of time on the last note
+                RecordData(NoteIndex, false);
+            }
+            NextNote();
+        }
+
         private void NoteClick(object sender)
         {
+            ptc.StopTimer();
             Button b = sender as Button;
             if (b != null && !ptc.CountingDown)
             {
+                //give the note sentine a default value
                 string note = curSession.Piano[0];
+                //find it within the piano to make sure the button has a valid value
                 foreach (string s in curSession.Piano)
                 {
                     if (b.Content.ToString() == s)
@@ -240,29 +282,29 @@ namespace SongProofWP8.Pages
                     }
                 }
                 int noteIndex = curSession.ProofingData[curIndex - 1];
+                //use that value to check to see if it was the
+                //right one to press for the current note
                 bool correct = curSession.ScaleUsed.Notes[noteIndex] == note;
 
                 RecordData(noteIndex, correct);
+                StyleButton(b, correct);
                 NextNote();
-                ptc.ShowResultPic(correct);
-                //NoteCheckSymbol.Data = correct ? (Geometry)Resources["Checkmark"] : (Geometry)Resources["X"];
-                //PathInOut.Begin();
             }
         }
+
         private void NextNote()
         {
             if (curIndex < curSession.ProofingData.Length)
             {
                 NoteNumber = (curSession.ProofingData[curIndex++] + 1);
                 ptc.TestingValue = NoteNumber.ToString();
-                ptc.RemainingTime = curSession.Diff.GetHashCode();
                 ptc.PBValue++;
+                ptc.StartTimer();
             }
             else
             {
                 ptc.StopTimer();
                 sbc.EnableViewResults(true);
-                ptc.SetTimerText(true);
             }
         }
         #endregion
@@ -400,6 +442,7 @@ namespace SongProofWP8.Pages
                         else
                         {
                             ptc.CountingDown = false;
+                            ptc.TrackingTime = false;
                             NextNote();
                         }
                         break;
@@ -431,8 +474,7 @@ namespace SongProofWP8.Pages
             switch (DataHolder.ProofType)
             {
                 case DataHolder.ProofingTypes.PlacingTheNote:
-                    if (ptc.TimerEnabled())
-                        ptc.StopTimer();
+                    ptc.StopTimer();
                     break;
                 case DataHolder.ProofingTypes.HW3:
                     if (hptc.TimerEnabled())

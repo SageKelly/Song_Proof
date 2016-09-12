@@ -60,7 +60,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Button x:ConnectionId='1' Content="{Binding}" Padding="2,0"                    HorizontalAlignment="Left"
-                            VerticalAlignment="Top" MinWidth="50" FontSize="32" FontFamily="Global User Interface"/>
+                            VerticalAlignment="Top" MinWidth="50" FontSize="32" FontFamily="Global User Interface" IsDoubleTapEnabled="False" IsHoldingEnabled="False" IsRightTapEnabled="False" ManipulationMode="None"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

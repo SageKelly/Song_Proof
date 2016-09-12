@@ -21,8 +21,6 @@ namespace SongProofWP8.UserControls
 {
     public sealed partial class HW3IntervalHolderControl : UserControl, INotifyPropertyChanged
     {
-        private string note1Var;
-        private string note2Var;
         private const int MIN_NOTE_SIZE = 2;
         private const int COLUMN_WIDTH = 106;
 

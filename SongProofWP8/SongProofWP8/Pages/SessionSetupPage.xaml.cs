@@ -85,7 +85,8 @@ namespace SongProofWP8.Pages
                 switch (DataHolder.ProofType)
                 {
                     case DataHolder.ProofingTypes.PlacingTheNote:
-                        DataHolder.SetupPTNTest(DataHolder.ProofType, (string)_ssc.SelectedKey, (KVTuple<string, string>)_ssc.SelectedScale, (bool)_ssc.ShowSharp,
+
+                        DataHolder.SetupPTNTest(DataHolder.ProofType, (string)_ssc.SelectedKey,(string)_ssc.SelectedScaleGroup, (KVTuple<string, string>)_ssc.SelectedScale, (bool)_ssc.ShowSharp,
                             (ScaleResources.Difficulties)_ssc.SelectedDifficulty, _ssc.NoteAmount);
                         Frame.Navigate(typeof(ViewScale));
                         break;
