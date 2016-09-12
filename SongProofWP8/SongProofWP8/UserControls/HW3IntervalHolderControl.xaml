@@ -41,7 +41,7 @@
         <!--<Grid>-->
         <Grid.ColumnDefinitions>
         </Grid.ColumnDefinitions>
-        <ListView>
+        <ListView x:Name="NoteStack" ItemsSource="{Binding}">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel x:Name="NoteStack" Orientation="Horizontal"/>
