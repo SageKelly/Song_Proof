@@ -31,7 +31,7 @@ namespace SongProofWP8.Pages
         private int note_index;
         private int note_number;
         private string scale_name;
-        private bool SessionStarted = false;
+        private bool SessionRunning = false;
         private string[] piano;
 
         private const string IH = "H";
@@ -140,7 +140,7 @@ namespace SongProofWP8.Pages
             }
             piano = curSession.Piano;
             DataContext = this;
-            curIndex = 0;
+            curIndex = -1;
 
             incrementor = 0;
 
@@ -192,8 +192,6 @@ namespace SongProofWP8.Pages
             {
                 case DataHolder.ProofingTypes.PlacingTheNote:
                     ptc = new ProgressTrackerControl("Note Amount", "TimerComplete", this, typeof(SessionPage));
-                    LayoutRoot.Children.Add(ptc);
-                    Grid.SetRow(ptc, 1);
                     break;
                 case DataHolder.ProofingTypes.HW3:
                     hptc = new HW3ProgressTrackerControl(curSession.Data.Length, "HW3TickDown", this, typeof(SessionPage));
@@ -211,6 +209,7 @@ namespace SongProofWP8.Pages
                     PianoKeyControl pkc = new PianoKeyControl(curSession.Piano, curSession.ScaleUsed.Notes, "NoteClick", this, typeof(SessionPage));
                     LayoutRoot.Children.Add(pkc);
                     Grid.SetRow(pkc, 2);
+                    pkc.InstallInCenter(ptc);
                     break;
                 case DataHolder.ProofingTypes.HW3:
                     HW3ButtonsControl hbc = new HW3ButtonsControl(IH, IW, I3, "IntervalClick", this, typeof(SessionPage));
@@ -256,55 +255,57 @@ namespace SongProofWP8.Pages
                 ptc.CountingDown = false;
                 ptc.SetTimerInterval(DataHolder.SM.CurrentSession.Diff.GetHashCode());
             }
-            if (curIndex > 0)
+            if (curIndex > -1)
             {
                 //you ran out of time on the last note
                 RecordData(NoteIndex, false);
+                ptc.PBValue++;
             }
             NextNote();
         }
 
         private void NoteClick(object sender)
         {
-            ptc.StopTimer();
-            Button b = sender as Button;
-            if (b != null && !ptc.CountingDown)
+            if (SessionRunning)
             {
-                //give the note sentine a default value
-                string note = curSession.Piano[0];
-                //find it within the piano to make sure the button has a valid value
-                foreach (string s in curSession.Piano)
-                {
-                    if (b.Content.ToString() == s)
-                    {
-                        note = s;
-                        break;
-                    }
-                }
-                int noteIndex = curSession.ProofingData[curIndex - 1];
-                //use that value to check to see if it was the
-                //right one to press for the current note
-                bool correct = curSession.ScaleUsed.Notes[noteIndex] == note;
+                ptc.StopTimer();
 
-                RecordData(noteIndex, correct);
-                StyleButton(b, correct);
-                NextNote();
+                Button b = sender as Button;
+                if (b != null && !ptc.CountingDown)
+                {
+                    //give the note the button's value
+                    string note = b.Content.ToString();
+                    ;
+                    int noteIndex = curSession.ProofingData[curIndex];
+                    //use that value to check to see if it was the
+                    //right one to press for the current note
+                    bool correct = curSession.ScaleUsed.Notes[noteIndex] == note;
+
+                    RecordData(noteIndex, correct);
+                    StyleButton(b, correct);
+                    NextNote();
+                    ptc.PBValue++;
+                }
             }
         }
 
         private void NextNote()
         {
-            if (curIndex < curSession.ProofingData.Length)
+            if (SessionRunning)
             {
-                NoteNumber = (curSession.ProofingData[curIndex++] + 1);
-                ptc.TestingValue = NoteNumber.ToString();
-                ptc.PBValue++;
-                ptc.StartTimer();
-            }
-            else
-            {
-                ptc.StopTimer();
-                sbc.EnableViewResults(true);
+                curIndex++;
+                if (curIndex < curSession.ProofingData.Length)
+                {
+                    NoteNumber = curSession.ProofingData[curIndex] + 1;
+                    ptc.TestingValue = NoteNumber.ToString();
+                    ptc.StartTimer();
+                }
+                else
+                {
+                    ptc.StopTimer();
+                    sbc.EnableViewResults(true);
+                    SessionRunning = false;
+                }
             }
         }
         #endregion
@@ -329,6 +330,7 @@ namespace SongProofWP8.Pages
                         interval = 3;
                         break;
                 }
+                //TODO: Fix curIndex here, now that it starts with -1
                 int curData = curSession.ProofingData[curIndex - (hptc.PBValue > 3 ? 1 : 3)];
                 bool correct = curData == interval;
                 RecordData(curData, correct);
@@ -360,7 +362,8 @@ namespace SongProofWP8.Pages
 
         private void GetNextHW3Interval(bool Slide = false)
         {
-            incrementor = (incrementor + curSession.ProofingData[curIndex++]) % piano.Length;
+            curIndex++;
+            incrementor = (incrementor + curSession.ProofingData[curIndex]) % piano.Length;
             if (!Slide)
             {
                 hptc.SetNextNote(piano[incrementor]);
@@ -430,8 +433,11 @@ namespace SongProofWP8.Pages
 
         private void B_Start_Click(object sender)
         {
-            if (!SessionStarted)
+            if (!SessionRunning)
             {
+                SessionRunning = true;
+                sbc.EnableStart(false);
+
                 switch (DataHolder.ProofType)
                 {
                     case DataHolder.ProofingTypes.PlacingTheNote:
@@ -462,10 +468,6 @@ namespace SongProofWP8.Pages
                         }
                         break;
                 }
-
-
-                SessionStarted = true;
-                sbc.EnableStart(false);
             }
         }
 
