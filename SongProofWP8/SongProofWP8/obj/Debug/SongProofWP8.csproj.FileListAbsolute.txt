@@ -222,3 +222,8 @@ C:\GitHub\Song_Proof\SongProofWP8\SongProofWP8\obj\Debug\qualifiers.txt
 C:\GitHub\Song_Proof\SongProofWP8\SongProofWP8\obj\Debug\qualifiers.txt.intermediate
 C:\GitHub\Song_Proof\SongProofWP8\SongProofWP8\obj\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\GitHub\Song_Proof\SongProofWP8\SongProofWP8\obj\Debug\ProjectArchitectures.txt
+C:\GitHub\Song_Proof\SongProofWP8\SongProofWP8\bin\Debug\Pages\ScaleRecitePage.xbf
+C:\GitHub\Song_Proof\SongProofWP8\SongProofWP8\obj\Debug\Pages\ScaleRecitePage.g.i.cs
+C:\GitHub\Song_Proof\SongProofWP8\SongProofWP8\obj\Debug\Pages\ScaleRecitePage.g.cs
+C:\GitHub\Song_Proof\SongProofWP8\SongProofWP8\obj\Debug\Pages\ScaleRecitePage.xaml
+C:\GitHub\Song_Proof\SongProofWP8\SongProofWP8\obj\Debug\Pages\ScaleRecitePage.xbf

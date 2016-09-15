@@ -6,31 +6,9 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    d:DesignHeight="260"
-    d:DesignWidth="400">
+    d:DesignHeight="115"
+    d:DesignWidth="130">
     <UserControl.Resources>
-        <Storyboard x:Name="FadeInX">
-            <DoubleAnimation Storyboard.TargetName="X" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.5">
-                <DoubleAnimation.EasingFunction>
-                    <CircleEase EasingMode="EaseOut"/>
-                </DoubleAnimation.EasingFunction>
-            </DoubleAnimation>
-        </Storyboard>
-        <Storyboard x:Name="FadeInCheck">
-            <DoubleAnimation Storyboard.TargetName="Checkmark" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.5">
-                <DoubleAnimation.EasingFunction>
-                    <CircleEase EasingMode="EaseOut"/>
-                </DoubleAnimation.EasingFunction>
-            </DoubleAnimation>
-        </Storyboard>
-        <Style x:Name="PathStyle" TargetType="Path">
-            <Setter Property="Stretch" Value="Uniform"/>
-            <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
-            <Setter Property="UseLayoutRounding" Value="False"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="Opacity" Value="0"/>
-        </Style>
         <Style x:Name="BorderStyle" TargetType="Border">
             <Setter Property="BorderBrush" Value="White"/>
             <Setter Property="BorderThickness" Value="2.5"/>
@@ -38,31 +16,36 @@
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
         </Style>
-        <Style x:Name="TBStyle" TargetType="TextBlock">
-            <Setter Property="FontSize" Value="32"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="MinHeight" Value="50"/>
-            <Setter Property="MaxHeight" Value="50"/>
-        </Style>
+        <Storyboard x:Name="ColorChange">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Control.Foreground).(SolidColorBrush.Color)" Storyboard.TargetName="TimerProgress">
+                <EasingColorKeyFrame KeyTime="0" Value="#FF22B900"/>
+                <EasingColorKeyFrame x:Name="CKFM" KeyTime="0:0:1.5" Value="Yellow"/>
+                <EasingColorKeyFrame x:Name="CKFE"  KeyTime="0:0:3" Value="Red"/>
+            </ColorAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(RangeBase.Value)" Storyboard.TargetName="TimerProgress">
+                <EasingDoubleKeyFrame KeyTime="0" Value="3"/>
+                <EasingDoubleKeyFrame x:Name="VKFM" KeyTime="0:0:1.5" Value="1.5"/>
+                <EasingDoubleKeyFrame x:Name="VKFE"  KeyTime="0:0:3" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
     </UserControl.Resources>
     <Grid Background="Black">
         <!--<Grid>-->
         <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="140"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="60"/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
         <!-- Timer -->
-        <Border BorderThickness="0,0,0,3" Grid.Row="0" BorderBrush="White">
-            <StackPanel>
-                <TextBlock Text="Time Left:" Style="{StaticResource TBStyle}"/>
-                <TextBlock x:Name="TB_Timer" Text="{Binding TimerText,FallbackValue=1.000}" Style="{StaticResource TBStyle}"/>
-            </StackPanel>
-        </Border>
+        <ProgressBar x:Name="TimerProgress" Grid.Row="0" SmallChange="0.1" IsHitTestVisible="False" MinHeight="16" Margin="12,0"
+                             Foreground="#FF22B900" Maximum="3" IsDoubleTapEnabled="False" IsHoldingEnabled="False" IsRightTapEnabled="False" IsTapEnabled="False" ManipulationMode="None" Value="3">
+            <ProgressBar.Background>
+                <SolidColorBrush Color="#28D8F80B"/>
+            </ProgressBar.Background>
+        </ProgressBar>
+        
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
@@ -72,22 +55,7 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <TextBlock x:Name="TB_TestingLabel" Grid.Row="0" Text="{Binding TestingLabel,Mode=OneWay,FallbackValue=No Value Shown}" HorizontalAlignment="Center" Margin="0,2" VerticalAlignment="Center" FontSize="16"/>
-                <TextBlock x:Name="TB_TestingValue" Grid.Row="1" Text="{Binding TestingValue,Mode=OneWay,FallbackValue=No Value}" HorizontalAlignment="Center" Margin="0,2" VerticalAlignment="Center" FontSize="32"/>
-            </Grid>
-
-            <Grid Grid.Column="1">
-                <Border x:Name="XBorder" Grid.Row="0" Grid.RowSpan="3" Grid.Column="1"
-                        Style="{StaticResource BorderStyle}" Visibility="Collapsed" HorizontalAlignment="Center">
-                    <Path x:Name="X" Data="F1 M 0,0 L -37.6,37.6 C 67.04,187.36 51.36,107.68 107.04,187.36 51.36,268.32 67.04,187.36 -37.6,339.68
-		L 0,377.6 C 152.48,272.8 71.52,288.48 152.48,232.8 232.16,288.48 152.48,272.8 302.08,377.6
-		L 340,339.68 C 237.92,187.36 252.16,268.32 197.92,187.36 252.16,107.68 237.92,187.36 340,37.6
-		L 302.08,0 C 152.48,101.92 232.16,87.68 152.48,141.92 71.52,87.68 152.48,101.92 0,0 z" Fill="#FFB60000" Style="{StaticResource PathStyle}"/>
-                </Border>
-                <Border x:Name="CheckBorder" Grid.Row="0" Grid.RowSpan="3" Grid.Column="1"
-                        Style="{StaticResource BorderStyle}" HorizontalAlignment="Center">
-                    <Path x:Name="Checkmark" Data="F1 M 0,0 C 53.92,-96.96 103.84,-198.4 294.08,-343.36 L 231.68,-399.2 C 111.52,-309.92 39.84,-215.2 -9.12,-112.8    -65.6,-136.48 -77.92,-166.08 -100.48,-201.12 -122.08,-180.16 -164.48,-143.2 -164.48,-143.2 -101.92,-103.04 -59.68,-75.2 0,0 z"
-                          Fill="#FF5BD419" Style="{StaticResource PathStyle}" />
-                </Border>
+                <TextBlock x:Name="TB_TestingValue" Grid.Row="1" Text="{Binding TestingValue,Mode=OneWay,FallbackValue=No Value}" HorizontalAlignment="Center" Margin="0,2" VerticalAlignment="Center" FontSize="28"/>
             </Grid>
         </Grid>
         <ProgressBar x:Name="ProofProgress" Grid.Row="2" SmallChange="1" IsHitTestVisible="False"

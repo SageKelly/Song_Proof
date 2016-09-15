@@ -24,32 +24,30 @@
             <Setter Property="FontSize" Value="74"/>
         </Style>
         <Storyboard x:Name="SlideLeft">
-        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="grid">
-        		<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-        		<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-318">
-        			<EasingDoubleKeyFrame.EasingFunction>
-        				<ExponentialEase EasingMode="EaseInOut"/>
-        			</EasingDoubleKeyFrame.EasingFunction>
-        		</EasingDoubleKeyFrame>
-        	</DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="grid">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-318">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <ExponentialEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
         </Storyboard>
     </UserControl.Resources>
     <Grid x:Name="grid" Background="Black" RenderTransformOrigin="0.5,0.5">
-    	<Grid.RenderTransform>
-    		<CompositeTransform/>
-    	</Grid.RenderTransform>
+        <Grid.RenderTransform>
+            <CompositeTransform/>
+        </Grid.RenderTransform>
         <!--<Grid>-->
-            <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="106"/>
-            <ColumnDefinition Width="106"/>
-            <ColumnDefinition Width="106"/>
+        <Grid.ColumnDefinitions>
         </Grid.ColumnDefinitions>
-        <TextBlock x:Name="Note1" Grid.Column="0" Style="{StaticResource TBStyle}"
-                               Text="{Binding Note1Var, Mode=OneWay, FallbackValue=N♯}"/>
-        <TextBlock x:Name="Arrow1" Grid.Column="1" Style="{StaticResource TBArrowStyle}" Text="→"/>
-
-        <TextBlock x:Name="Note2" Grid.Column="2" Style="{StaticResource TBStyle}"
-                               Text="{Binding Note2Var, Mode=OneWay, FallbackValue=N♭}"/>
+        <ListView x:Name="NoteStack" ItemsSource="{Binding}">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel x:Name="NoteStack" Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+        </ListView>
     </Grid>
 </UserControl>
 

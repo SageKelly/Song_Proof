@@ -28,9 +28,11 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button x:ConnectionId='1' x:Name="B_Restart" Grid.Column="0" Content="Again!!!" HorizontalAlignment="Center" VerticalAlignment="Center"                       />
-            <Button x:ConnectionId='2' x:Name="B_Main" Grid.Column="1" Content="Back to Main" HorizontalAlignment="Center" VerticalAlignment="Center"               />
+            <Button x:ConnectionId='1' x:Name="B_Restart" Grid.Column="0" Content="Again" HorizontalAlignment="Center" VerticalAlignment="Center"                       />
+            <Button x:ConnectionId='2' x:Name="B_Settings" Grid.Column="1" Content="Settings" HorizontalAlignment="Center" VerticalAlignment="Center"                   />
+            <Button x:ConnectionId='3' x:Name="B_Main" Grid.Column="2" Content="Proof Menu" HorizontalAlignment="Center" VerticalAlignment="Center"               />
         </Grid>
     </Grid>
 </Page>
