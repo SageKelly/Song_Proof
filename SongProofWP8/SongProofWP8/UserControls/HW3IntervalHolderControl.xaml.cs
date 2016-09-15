@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
+
 // The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
 
 namespace SongProofWP8.UserControls
@@ -22,37 +23,45 @@ namespace SongProofWP8.UserControls
     {
         private string note1Var;
         private string note2Var;
+        private const int MIN_NOTE_SIZE = 2;
+        private const int COLUMN_WIDTH = 106;
 
+        private List<TextBlock> NoteControls;
 
-        public string Note1Var
-        {
-            get { return note1Var; }
-            set
-            {
-                if (note1Var != value)
-                {
-                    note1Var = value;
-                    NotifyPropertyChanged("Note1Var");
-                }
-            }
-        }
-        public string Note2Var
-        {
-            get { return note2Var; }
-            set
-            {
-                if (note2Var != value)
-                {
-                    note2Var = value;
-                    NotifyPropertyChanged("Note2Var");
-                }
-            }
-        }
         public event PropertyChangedEventHandler PropertyChanged;
-        public HW3IntervalHolderControl()
+
+        public HW3IntervalHolderControl(string[] noteList)
         {
             this.InitializeComponent();
+            DataContext = this;
+
+            if (noteList.Length < MIN_NOTE_SIZE)
+            {
+                throw new Exception("Note size is lower than minimum");
+            }
+            NoteControls = new List<TextBlock>();
+
+            int gridSize = (noteList.Length * 2) - 1;
+            int noteIndex = 0;
+
+            for (int i = 0; i < gridSize; i++)
+            {
+                TextBlock tb = new TextBlock()
+                {
+                    Text = i % 2 == 0 ? noteList[noteIndex] : "←",
+                    Style = i % 2 == 0 ? TBStyle : TBArrowStyle
+                };
+
+                if (i % 2 == 0)
+                {
+                    noteIndex++;
+                }
+                NoteControls.Add(tb);
+                
+            }
+            NoteStack.ItemsSource = NoteControls;
         }
+
         private void NotifyPropertyChanged(string propertyName)
         {
             if (PropertyChanged != null)

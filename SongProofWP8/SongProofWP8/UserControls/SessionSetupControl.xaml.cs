@@ -272,5 +272,18 @@ namespace SongProofWP8.UserControls
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(property_name_));
         }
+
+        /// <summary>
+        /// Sets the screen to its previous settings
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BSet_Previous(object sender, RoutedEventArgs e)
+        {
+            if (true)
+            {
+
+            }
+        }
     }
 }
