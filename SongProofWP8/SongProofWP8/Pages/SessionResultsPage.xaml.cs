@@ -85,11 +85,6 @@ namespace SongProofWP8.Pages
         {
         }
 
-        private void RevealNoteInfo(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void RestartSession(object sender, RoutedEventArgs e)
         {
             DataHolder.SM.ResetSession();
@@ -102,6 +97,11 @@ namespace SongProofWP8.Pages
         private void ToMain(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(MainPage));
+        }
+
+        private void ToSettings(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(SessionSetupPage));
         }
     }
 }

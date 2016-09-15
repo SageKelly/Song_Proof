@@ -130,6 +130,9 @@
     <AppxPackagedFile Include="C:\GitHub\Song_Proof\SongProofWP8\SongProofWP8\bin\Debug\Pages\ScaleProofTestListPage.xbf">
       <PackagePath>Pages\ScaleProofTestListPage.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\GitHub\Song_Proof\SongProofWP8\SongProofWP8\bin\Debug\Pages\ScaleRecitePage.xbf">
+      <PackagePath>Pages\ScaleRecitePage.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\GitHub\Song_Proof\SongProofWP8\SongProofWP8\bin\Debug\Pages\SessionPage.xbf">
       <PackagePath>Pages\SessionPage.xbf</PackagePath>
     </AppxPackagedFile>

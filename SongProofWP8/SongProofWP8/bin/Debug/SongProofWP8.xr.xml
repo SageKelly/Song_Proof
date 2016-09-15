@@ -213,6 +213,7 @@
     </RootType>
     <RootType FullName="SongProofWP8.Pages.MainPage" />
     <RootType FullName="SongProofWP8.Pages.ScaleProofTestListPage" />
+    <RootType FullName="SongProofWP8.Pages.ScaleRecitePage" />
     <RootType FullName="SongProofWP8.Pages.SessionPage" />
     <RootType FullName="SongProofWP8.Pages.SessionSetupPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.UserControl">

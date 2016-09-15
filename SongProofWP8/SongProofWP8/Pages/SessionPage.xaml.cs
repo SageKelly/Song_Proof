@@ -54,7 +54,7 @@ namespace SongProofWP8.Pages
         {
             get
             {
-                return "Scale Name: " + scale_name;
+                return scale_name;
             }
             set
             {
