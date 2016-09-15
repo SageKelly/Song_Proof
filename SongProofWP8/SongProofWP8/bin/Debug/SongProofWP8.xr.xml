@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Roots >
   <Roots.PropertyPathNames>
-    <RootPropertyPathName Name="Note2Var" />
-    <RootPropertyPathName Name="Note1Var" />
     <RootPropertyPathName Name="MaxValue" />
     <RootPropertyPathName Name="PBValue" />
     <RootPropertyPathName Name="TranslationX" />
     <RootPropertyPathName Name="Note3Var" />
+    <RootPropertyPathName Name="Note2Var" />
+    <RootPropertyPathName Name="Note1Var" />
     <RootPropertyPathName Name="TimerText" />
     <RootPropertyPathName Name="StrAvgGuessingTime" />
     <RootPropertyPathName Name="StrCount" />
@@ -247,12 +247,24 @@
     <RootType FullName="Windows.UI.Xaml.Media.Animation.ExponentialEase">
       <RootProperty Name="EasingMode" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.ColumnDefinition">
-      <RootProperty Name="Width" />
+    <RootType FullName="Windows.UI.Xaml.Controls.ListView">
+      <RootProperty Name="ItemsSource" />
+      <RootProperty Name="ItemsPanel" />
+      <RootProperty Name="SelectionMode" />
+      <RootProperty Name="IsDoubleTapEnabled" />
+      <RootProperty Name="IsHoldingEnabled" />
+      <RootProperty Name="IsRightTapEnabled" />
+      <RootProperty Name="IsTapEnabled" />
+      <RootProperty Name="ItemTemplate" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="VerticalAlignment" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding">
       <RootProperty Name="Mode" />
       <RootProperty Name="FallbackValue" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ItemsPanelTemplate">
+      <RootProperty Name="Template" />
     </RootType>
     <RootType FullName="SongProofWP8.UserControls.HW3IntervalHolderControl" />
     <RootType FullName="Windows.UI.Xaml.Media.Animation.DoubleAnimation">
@@ -290,28 +302,16 @@
       <RootProperty Name="Color" />
       <RootProperty Name="Offset" />
     </RootType>
-    <RootType FullName="SongProofWP8.UserControls.HW3ProgressTrackerControl" />
-    <RootType FullName="Windows.UI.Xaml.Controls.ListView">
-      <RootProperty Name="SelectionMode" />
-      <RootProperty Name="ItemsSource" />
-      <RootProperty Name="IsDoubleTapEnabled" />
-      <RootProperty Name="IsHoldingEnabled" />
-      <RootProperty Name="IsRightTapEnabled" />
-      <RootProperty Name="IsTapEnabled" />
-      <RootProperty Name="ItemTemplate" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="ItemsPanel" />
+    <RootType FullName="Windows.UI.Xaml.Controls.ColumnDefinition">
+      <RootProperty Name="Width" />
     </RootType>
+    <RootType FullName="SongProofWP8.UserControls.HW3ProgressTrackerControl" />
     <RootType FullName="Windows.UI.Xaml.DataTemplate">
       <RootProperty Name="Template" />
     </RootType>
     <RootType FullName="SongProofWP8.UserControls.ListResultsControl" />
     <RootType FullName="Windows.UI.Xaml.Media.Animation.CircleEase">
       <RootProperty Name="EasingMode" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.ItemsPanelTemplate">
-      <RootProperty Name="Template" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.WrapGrid">
       <RootProperty Name="HorizontalAlignment" />
