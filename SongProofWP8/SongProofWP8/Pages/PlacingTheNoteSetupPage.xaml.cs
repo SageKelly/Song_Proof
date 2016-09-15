@@ -130,9 +130,9 @@ namespace SongProofWP8.Pages
         private void ToViewScalePage()
         {
             if (_ssu.SelectedScaleGroup != null && _ssu.SelectedScale != null &&
-                _ssu.SelectedKey != null && _ssu.SelectedDifficulty != null)
+                _ssu.SelectedKey != null)
             {
-                DataHolder.SetupPTNTest(DataHolder.ProofingTypes.PlacingTheNote, (string)_ssu.SelectedKey,
+                DataHolder.SetupPTNTest(DataHolder.ProofingTypes.PlacingTheNote, (string)_ssu.SelectedKey, (string)_ssu.SelectedScaleGroup,
                     (KVTuple<string, string>)_ssu.SelectedScale, (bool)_ssu.ShowSharp, (ScaleResources.Difficulties)_ssu.SelectedDifficulty,
                     _ssu.NoteAmount);
                 Frame.Navigate(typeof(ViewScale));

@@ -10,7 +10,7 @@
     d:DesignWidth="400">
 
     <Grid>
-        <ListView x:Name="LV_Results" SelectionMode="None" ItemsSource="{Binding}" IsDoubleTapEnabled="False" IsHoldingEnabled="False" IsRightTapEnabled="False" IsTapEnabled="False">
+        <ListView x:Name="LV_Results" SelectionMode="None" ItemsSource="{Binding}" IsDoubleTapEnabled="False" IsHoldingEnabled="False" IsRightTapEnabled="False" IsTapEnabled="False" ManipulationMode="None">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Vertical" IsDoubleTapEnabled="False" IsHoldingEnabled="False" IsRightTapEnabled="False" IsTapEnabled="False">

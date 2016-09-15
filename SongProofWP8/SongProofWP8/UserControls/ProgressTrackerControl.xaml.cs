@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
 // The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
@@ -85,20 +86,6 @@ namespace SongProofWP8.UserControls
             }
         }
 
-        private string _timerText;
-        public string TimerText
-        {
-            get { return _timerText; }
-            set
-            {
-                if (_timerText != value)
-                {
-                    _timerText = value;
-                    NotifyPropertyChanged("TimerText");
-                }
-            }
-        }
-
         private double _pBValue;
         public double PBValue
         {
@@ -113,11 +100,22 @@ namespace SongProofWP8.UserControls
             }
         }
 
-        public int RemainingTime { get; set; }
+        public int RemainingTime
+        {
+            get
+            {
+                return (int)ColorChange.GetCurrentTime().TotalMilliseconds;
+            }
+        }
+        /// <summary>
+        /// Denotes whether or not the initial countdown is happening
+        /// </summary>
         public bool CountingDown { get; set; }
-        private DispatcherTimer TickDownTimer;
 
-
+        /// <summary>
+        /// Denotes whether or not the timer should be working.
+        /// </summary>
+        public bool TrackingTime { get; set; }
 
         private object _methodTarget;
         private MethodInfo timerMethod;
@@ -134,53 +132,49 @@ namespace SongProofWP8.UserControls
             _methodTarget = methodTarget;
             timerMethod = targetType.GetTypeInfo().GetDeclaredMethod(timerMethodName);
 
-            SetTimerText();
+            TrackingTime = true;
+
             DataContext = this;
             CountingDown = true;
-            RemainingTime = 3000;
-            TickDownTimer = new DispatcherTimer();
-            TickDownTimer.Tick += TickDownTimer_Tick;
-            TickDownTimer.Interval = TimeSpan.Parse("00:00:1");
+            SetTimerInterval(3000);
+
+            ColorChange.Completed += ColorChange_Completed;
         }
 
-        void TickDownTimer_Tick(object sender, object e)
+        void ColorChange_Completed(object sender, object e)
         {
             timerMethod.Invoke(_methodTarget, new object[1] { sender });
-            SetTimerText();
         }
 
         public void StartTimer()
         {
-            TickDownTimer.Start();
+            if (TrackingTime)
+            {
+                ColorChange.Stop();
+                ColorChange.Begin(); 
+            }
         }
 
         public void StopTimer()
         {
-            TickDownTimer.Stop();
-        }
-
-        public bool TimerEnabled()
-        {
-            return TickDownTimer.IsEnabled;
-        }
-
-        public void SetTimerInterval(TimeSpan interval)
-        {
-            TickDownTimer.Interval = interval;
-        }
-
-        public void SetTimerText(bool defaultText = false)
-        {
-            if (defaultText)
+            if (TrackingTime)
             {
-                TimerText = "0.000";
-            }
-            else
-            {
-                TimerText = (RemainingTime / 1000) + "." + (RemainingTime % 1000);
+                ColorChange.Pause(); 
             }
         }
 
+        /// <summary>
+        /// Sets the interval for the timer, in milliseconds
+        /// </summary>
+        /// <param name="interval">The interval value</param>
+        public void SetTimerInterval(int interval)
+        {
+            CKFM.KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(interval / 2.00));
+            CKFE.KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(interval));
+
+            VKFM.KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(interval / 2.00));
+            VKFE.KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(interval));
+        }
 
 
         public void NotifyPropertyChanged(string propertyName)
@@ -188,26 +182,6 @@ namespace SongProofWP8.UserControls
             if (PropertyChanged != null)
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
-
-        /// <summary>
-        /// Displays a checkmark or an X depending on the parameter value
-        /// </summary>
-        /// <param name="correct">If true, a checkmark, else an X shows</param>
-        public void ShowResultPic(bool correct)
-        {
-            if (correct)
-            {
-                XBorder.Visibility = Visibility.Collapsed;
-                CheckBorder.Visibility = Visibility.Visible;
-                FadeInCheck.Begin();
-            }
-            else
-            {
-                CheckBorder.Visibility = Visibility.Collapsed;
-                XBorder.Visibility = Visibility.Visible;
-                FadeInX.Begin();
             }
         }
     }
