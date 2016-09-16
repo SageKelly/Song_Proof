@@ -9,6 +9,18 @@
     d:DesignHeight="100"
     d:DesignWidth="318">
     <UserControl.Resources>
+        <Storyboard x:Name="ColorChange">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Control.Foreground).(SolidColorBrush.Color)" Storyboard.TargetName="TimerProgress">
+                <EasingColorKeyFrame KeyTime="0" Value="#FF22B900"/>
+                <EasingColorKeyFrame x:Name="CKFM" KeyTime="0:0:1.5" Value="Yellow"/>
+                <EasingColorKeyFrame x:Name="CKFE"  KeyTime="0:0:3" Value="Red"/>
+            </ColorAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(RangeBase.Value)" Storyboard.TargetName="TimerProgress">
+                <EasingDoubleKeyFrame KeyTime="0" Value="3"/>
+                <EasingDoubleKeyFrame x:Name="VKFM" KeyTime="0:0:1.5" Value="1.5"/>
+                <EasingDoubleKeyFrame x:Name="VKFE"  KeyTime="0:0:3" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
         <Style x:Name="TBStyle" TargetType="TextBlock">
             <Setter Property="TextAlignment" Value="Center"/>
             <!--<Setter Property="FontSize" Value="52"/>-->
@@ -24,14 +36,12 @@
             <Setter Property="FontSize" Value="74"/>
         </Style>
         <Storyboard x:Name="SlideLeft">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="grid">
-                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-318">
-                    <EasingDoubleKeyFrame.EasingFunction>
+            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)"
+                             Storyboard.TargetName="grid" Duration="0:0:0.5" By="-318">
+                    <DoubleAnimation.EasingFunction>
                         <ExponentialEase EasingMode="EaseInOut"/>
-                    </EasingDoubleKeyFrame.EasingFunction>
-                </EasingDoubleKeyFrame>
-            </DoubleAnimationUsingKeyFrames>
+                    </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
         </Storyboard>
     </UserControl.Resources>
     <Grid x:Name="grid" Background="Black" RenderTransformOrigin="0.5,0.5">
@@ -39,14 +49,38 @@
             <CompositeTransform/>
         </Grid.RenderTransform>
         <!--<Grid>-->
-        <Grid.ColumnDefinitions>
-        </Grid.ColumnDefinitions>
-        <ListView x:Name="NoteStack" ItemsSource="{Binding}">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="60"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <!-- Timer -->
+        <ProgressBar x:Name="TimerProgress" Grid.Row="0" SmallChange="0.1" IsHitTestVisible="False" MinHeight="16" Margin="12,0"
+                             Foreground="#FF22B900" Maximum="3" IsDoubleTapEnabled="False" IsHoldingEnabled="False" IsRightTapEnabled="False" IsTapEnabled="False" ManipulationMode="None" Value="3">
+            <ProgressBar.Background>
+                <SolidColorBrush Color="#28D8F80B"/>
+            </ProgressBar.Background>
+        </ProgressBar>
+        
+        <ListView x:Name="NoteStack" Grid.Row="1" ItemsSource="{Binding}">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel x:Name="NoteStack" Orientation="Horizontal"/>
-                </ItemsPanelTemplate>
+                </ItemsPanelTemplate>                
             </ListView.ItemsPanel>
         </ListView>
+
+        <ProgressBar x:Name="ProofProgress" Grid.Row="2" SmallChange="1" IsHitTestVisible="False"
+                             Maximum="{Binding MaxValue,Mode=OneWay}" MinHeight="16" Value="{Binding PBValue,Mode=OneWay}" Margin="8,4">
+            <ProgressBar.Background>
+                <SolidColorBrush Color="#28D8F80B"/>
+            </ProgressBar.Background>
+            <ProgressBar.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#E5177233" Offset="0"/>
+                    <GradientStop Color="#E5BFF114" Offset="1"/>
+                </LinearGradientBrush>
+            </ProgressBar.Foreground>
+        </ProgressBar>
     </Grid>
 </UserControl>

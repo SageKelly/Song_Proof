@@ -58,6 +58,8 @@
                 <TextBlock x:Name="TB_TestingValue" Grid.Row="1" Text="{Binding TestingValue,Mode=OneWay,FallbackValue=No Value}" HorizontalAlignment="Center" Margin="0,2" VerticalAlignment="Center" FontSize="28"/>
             </Grid>
         </Grid>
+        
+        <!--Progress tracker-->
         <ProgressBar x:Name="ProofProgress" Grid.Row="2" SmallChange="1" IsHitTestVisible="False"
                              Maximum="{Binding MaxValue,Mode=OneWay}" MinHeight="16" Value="{Binding PBValue,Mode=OneWay}" Margin="8,4">
             <ProgressBar.Background>

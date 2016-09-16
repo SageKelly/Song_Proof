@@ -107,7 +107,7 @@ namespace SongProofWP8.Pages
 
         ProgressTrackerControl ptc;
         SessionButtonsControl sbc;
-        HW3ProgressTrackerControl hptc;
+        HW3IntervalHolderControl hihc;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -194,9 +194,9 @@ namespace SongProofWP8.Pages
                     ptc = new ProgressTrackerControl("Note Amount", "TimerComplete", this, typeof(SessionPage));
                     break;
                 case DataHolder.ProofingTypes.HW3:
-                    hptc = new HW3ProgressTrackerControl(curSession.Data.Length, "HW3TickDown", this, typeof(SessionPage));
-                    LayoutRoot.Children.Add(hptc);
-                    Grid.SetRow(hptc, 1);
+                    hihc = new HW3IntervalHolderControl(curSession.ProofingData, curSession.Piano, "HW3TickDown", typeof(SessionPage), this);
+                    LayoutRoot.Children.Add(hihc);
+                    Grid.SetRow(hihc, 1);
                     break;
             }
         }
@@ -227,7 +227,7 @@ namespace SongProofWP8.Pages
                     curSession.StoreData(index, correct, curSession.Diff.GetHashCode() - ptc.RemainingTime);
                     break;
                 case DataHolder.ProofingTypes.HW3:
-                    curSession.StoreData(index, correct, curSession.Diff.GetHashCode() - hptc.RemainingTime);
+                    curSession.StoreData(index, correct, curSession.Diff.GetHashCode() - hihc.RemainingTime);
                     break;
             }
         }
@@ -253,7 +253,7 @@ namespace SongProofWP8.Pages
             if (ptc.CountingDown)
             {
                 ptc.CountingDown = false;
-                ptc.SetTimerInterval(DataHolder.SM.CurrentSession.Diff.GetHashCode());
+                ptc.SetTimerInterval(curSession.Diff.GetHashCode());
             }
             if (curIndex > -1)
             {
@@ -313,84 +313,69 @@ namespace SongProofWP8.Pages
         #region HW3 Reaction
         private void IntervalClick(object sender)
         {
-            Button sentinel = sender as Button;
-            int interval = 1;
-            if (sentinel != null && !hptc.CountingDown)
+            if (SessionRunning)
             {
-                string pressedButton = sentinel.Content.ToString();
-                switch (pressedButton)
+                hihc.StopTimer();
+                Button sentinel = sender as Button;
+                int interval = 1;
+                if (sentinel != null && !hihc.CountingDown)
                 {
-                    case IH:
-                        interval = 1;
-                        break;
-                    case IW:
-                        interval = 2;
-                        break;
-                    case I3:
-                        interval = 3;
-                        break;
+                    string pressedButton = sentinel.Content.ToString();
+                    switch (pressedButton)
+                    {
+                        case IH:
+                            interval = 1;
+                            break;
+                        case IW:
+                            interval = 2;
+                            break;
+                        case I3:
+                            interval = 3;
+                            break;
+                    }
+                    //TODO: Fix curIndex here, now that it starts with -1
+                    int curData = curSession.ProofingData[curIndex];
+                    bool correct = curData == interval;
+                    RecordData(curData, correct);
+                    GetNextHW3Note();
+                    hihc.PBValue++;
                 }
-                //TODO: Fix curIndex here, now that it starts with -1
-                int curData = curSession.ProofingData[curIndex - (hptc.PBValue > 3 ? 1 : 3)];
-                bool correct = curData == interval;
-                RecordData(curData, correct);
-                GetNextHW3Note();
             }
         }
-        private void HPTCTimer_Tick(object sender)
+        private void HW3TickDown(object sender)
         {
-            hptc.RemainingTime -= hptc.CountingDown ? 1000 : 100;
-            if (hptc.RemainingTime == 0)
+            if (hihc.CountingDown)
             {
-                if (hptc.CountingDown)
-                {
-                    hptc.CountingDown = false;
-                    hptc.SetTimerInterval(TimeSpan.Parse("00:00:0.100"));
-                    GetNextHW3Interval();
-                    GetNextHW3Interval();
-                    GetNextHW3Interval();
-                    hptc.ToggleViewIntervals();
-                }
-                if (curIndex > 0)
-                {
-                    //you ran out of time on the last note
-                    RecordData(NoteIndex, false);
-                }
-                GetNextHW3Note();
-            }
-        }
+                hihc.CountingDown = false;
+                hihc.SetTimerInterval(curSession.Diff.GetHashCode());
+                //TODO: fade in view of first interval
 
-        private void GetNextHW3Interval(bool Slide = false)
-        {
-            curIndex++;
-            incrementor = (incrementor + curSession.ProofingData[curIndex]) % piano.Length;
-            if (!Slide)
-            {
-                hptc.SetNextNote(piano[incrementor]);
             }
-            else
+            if (curIndex > -1)
             {
-                hptc.NextInterval(piano[incrementor]);
+                //you ran out of time on the last note
+                RecordData(NoteIndex, false);
             }
+            GetNextHW3Note();
+            hihc.PBValue++;
         }
 
         private void GetNextHW3Note()
         {
-            if (curIndex < curSession.ProofingData.Length)
+            if (SessionRunning)
             {
-                if (hptc.PBValue > 3)
+                curIndex++;
+                if (curIndex < curSession.ProofingData.Length)
                 {
-                    GetNextHW3Interval();
+                    hihc.Next();
+                    hihc.StartTimer();
                 }
-                hptc.RemainingTime = curSession.Diff.GetHashCode();
-                hptc.IncrementProgress();
-                GetNextHW3Interval(true);
-            }
-            else
-            {
-                hptc.StopTimer();
-                sbc.EnableViewResults(true);
-                hptc.SetTimerText(true);
+                else
+                {
+                    hihc.StopTimer();
+                    SessionRunning = false;
+                    sbc.EnableViewResults(true);
+                }
             }
         }
         #endregion
@@ -455,16 +440,13 @@ namespace SongProofWP8.Pages
                     case DataHolder.ProofingTypes.HW3:
                         if (DataHolder.SM.CurrentSession.Diff != ScaleResources.Difficulties.Zen)
                         {
-                            hptc.StartTimer();
+                            hihc.StartTimer();
                         }
                         else
                         {
-                            hptc.CountingDown = false;
-                            GetNextHW3Interval();
-                            GetNextHW3Interval();
-                            GetNextHW3Interval();
-                            hptc.ToggleViewIntervals();
-                            hptc.RemainingTime = curSession.Diff.GetHashCode();
+                            hihc.CountingDown = false;
+                            hihc.TrackingTime = false;
+                            GetNextHW3Note();
                         }
                         break;
                 }
@@ -479,8 +461,7 @@ namespace SongProofWP8.Pages
                     ptc.StopTimer();
                     break;
                 case DataHolder.ProofingTypes.HW3:
-                    if (hptc.TimerEnabled())
-                        hptc.StopTimer();
+                    hihc.StopTimer();
                     break;
             }
             Frame.Navigate(typeof(MainPage));

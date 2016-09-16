@@ -77,8 +77,9 @@ namespace SongProofWP8
             ShowSharp = sharp;
             Diff = diff;
             NoteCount = note_count;
+            string[] piano = sharp ? ScaleResources.PianoSharp : ScaleResources.PianoFlat;
             SM = new SessionManager(new Session(ProofType, Diff,
-                sharp ? ScaleResources.PianoSharp : ScaleResources.PianoFlat,
+                piano,
                 ScaleResources.MakeHW3Quiz(note_count)));
             HW3HasBeenSet = true;
         }
