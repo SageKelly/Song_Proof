@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     d:DesignHeight="460"
-    d:DesignWidth="400">
+    d:DesignWidth="800">
     <UserControl.Resources>
         <Storyboard x:Name="FadeIn" >
             <DoubleAnimation Storyboard.TargetName="LBScale"
@@ -27,7 +27,19 @@
                 </DoubleAnimation.EasingFunction>
             </DoubleAnimation>
         </Storyboard>
-        <Style x:Key="NoteStyle" x:Name="NoteStyle" TargetType="Button">
+        <Style x:Key="NoteBaseStyle" x:Name="NoteBaseStyle" TargetType="Button">
+            <Setter Property="MinWidth" Value="80"/>
+            <Setter Property="FontSize" Value="48"/>
+            <Setter Property="Padding" Value="2,0"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="IsDoubleTapEnabled" Value="False"/>
+            <Setter Property="IsHoldingEnabled" Value="False"/>
+            <Setter Property="IsRightTapEnabled" Value="False"/>
+            <Setter Property="ManipulationMode" Value="None"/>
+            <Setter Property="Margin" Value="4,0"/>
+        </Style>
+        <Style x:Key="NoteSharpStyle" x:Name="NoteSharpStyle" TargetType="Button" BasedOn="{StaticResource NoteBaseStyle}">
             <Setter Property="MinWidth" Value="80"/>
             <Setter Property="FontSize" Value="48"/>
             <Setter Property="Padding" Value="2,0"/>
@@ -67,8 +79,6 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
@@ -77,23 +87,71 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <!-- Row 1-->
-            <Button x:ConnectionId='1' Grid.Row="0" Grid.Column="0" Style="{StaticResource NoteStyle}" Content="{Binding NotesUsed[0], Mode=OneWay, FallbackValue = NA}"                   />
-            <Button x:ConnectionId='2' Grid.Row="0" Grid.Column="1" Style="{StaticResource NoteStyle}" Content="{Binding NotesUsed[1], Mode=OneWay, FallbackValue = NA}"                   />
-            <Button x:ConnectionId='3' Grid.Row="0" Grid.Column="2" Style="{StaticResource NoteStyle}" Content="{Binding NotesUsed[2], Mode=OneWay, FallbackValue = NA}"                   />
-            <Button x:ConnectionId='4' Grid.Row="0" Grid.Column="3" Style="{StaticResource NoteStyle}" Content="{Binding NotesUsed[3], Mode=OneWay, FallbackValue = NA}"                   />
+            <Button x:ConnectionId='1' Grid.Row="0" Grid.Column="0" Style="{StaticResource NoteBaseStyle}" Content="{Binding NotesUsed[0], Mode=OneWay, FallbackValue = NA}"                   >
+                <Button.Background>
+                    <ImageBrush Stretch="Fill" ImageSource="ms-appx:///Assets/Piano Assets/C Key.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:ConnectionId='2' Grid.Row="0" Grid.Column="1" Style="{StaticResource NoteBaseStyle}" Content="{Binding NotesUsed[1], Mode=OneWay, FallbackValue = NA}"                   >
+                <Button.Background>
+                    <ImageBrush Stretch="Fill" ImageSource="ms-appx:///Assets/Piano Assets/Sharp Key.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:ConnectionId='3' Grid.Row="0" Grid.Column="2" Style="{StaticResource NoteBaseStyle}" Content="{Binding NotesUsed[2], Mode=OneWay, FallbackValue = NA}"                   >
+                <Button.Background>
+                    <ImageBrush Stretch="Fill" ImageSource="ms-appx:///Assets/Piano Assets/D Key.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:ConnectionId='4' Grid.Row="0" Grid.Column="3" Style="{StaticResource NoteBaseStyle}" Content="{Binding NotesUsed[3], Mode=OneWay, FallbackValue = NA}"                   >
+                <Button.Background>
+                    <ImageBrush Stretch="Fill" ImageSource="ms-appx:///Assets/Piano Assets/Sharp Key.png"/>
+                </Button.Background>
+            </Button>
 
             <!-- Row 2-->
-            <Button x:ConnectionId='5' Grid.Row="1" Grid.Column="0" Style="{StaticResource NoteStyle}" Content="{Binding NotesUsed[4], Mode=OneWay, FallbackValue = NA}"                   />
-            <Button x:ConnectionId='6' Grid.Row="1" Grid.Column="3" Style="{StaticResource NoteStyle}" Content="{Binding NotesUsed[5], Mode=OneWay, FallbackValue = NA}"                   />
+            <Button x:ConnectionId='5' Grid.Row="1" Grid.Column="0" Style="{StaticResource NoteBaseStyle}" Content="{Binding NotesUsed[4], Mode=OneWay, FallbackValue = NA}"                   >
+                <Button.Background>
+                    <ImageBrush Stretch="Fill" ImageSource="ms-appx:///Assets/Piano Assets/E Key.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:ConnectionId='6' Grid.Row="1" Grid.Column="3" Style="{StaticResource NoteBaseStyle}" Content="{Binding NotesUsed[5], Mode=OneWay, FallbackValue = NA}"                   >
+                <Button.Background>
+                    <ImageBrush Stretch="Fill" ImageSource="ms-appx:///Assets/Piano Assets/F Key.png"/>
+                </Button.Background>
+            </Button>
 
             <!-- Row 3-->
-            <Button x:ConnectionId='7' Grid.Row="2" Grid.Column="0" Style="{StaticResource NoteStyle}" Content="{Binding NotesUsed[6], Mode=OneWay, FallbackValue = NA}"                   />
-            <Button x:ConnectionId='8' Grid.Row="2" Grid.Column="3" Style="{StaticResource NoteStyle}" Content="{Binding NotesUsed[7], Mode=OneWay, FallbackValue = NA}"                   />
+            <Button x:ConnectionId='7' Grid.Row="2" Grid.Column="0" Style="{StaticResource NoteBaseStyle}" Content="{Binding NotesUsed[6], Mode=OneWay, FallbackValue = NA}"                   >
+                <Button.Background>
+                    <ImageBrush Stretch="Fill" ImageSource="ms-appx:///Assets/Piano Assets/Sharp Key.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:ConnectionId='8' Grid.Row="2" Grid.Column="3" Style="{StaticResource NoteBaseStyle}" Content="{Binding NotesUsed[7], Mode=OneWay, FallbackValue = NA}"                   >
+                <Button.Background>
+                    <ImageBrush Stretch="Fill" ImageSource="ms-appx:///Assets/Piano Assets/G Key.png"/>
+                </Button.Background>
+            </Button>
             <!-- Row 4-->
-            <Button x:ConnectionId='9' Grid.Row="3" Grid.Column="0" Style="{StaticResource NoteStyle}" Content="{Binding NotesUsed[8], Mode=OneWay, FallbackValue = NA}"                   />
-            <Button x:ConnectionId='10' Grid.Row="3" Grid.Column="1" Style="{StaticResource NoteStyle}" Content="{Binding NotesUsed[9], Mode=OneWay, FallbackValue = NA}"                   />
-            <Button x:ConnectionId='11' Grid.Row="3" Grid.Column="2" Style="{StaticResource NoteStyle}" Content="{Binding NotesUsed[10], Mode=OneWay, FallbackValue = NA}"                   />
-            <Button x:ConnectionId='12' Grid.Row="3" Grid.Column="3" Style="{StaticResource NoteStyle}" Content="{Binding NotesUsed[11], Mode=OneWay, FallbackValue = NA}"                   />
+            <Button x:ConnectionId='9' Grid.Row="3" Grid.Column="0" Style="{StaticResource NoteBaseStyle}" Content="{Binding NotesUsed[8], Mode=OneWay, FallbackValue = NA}"                   >
+                <Button.Background>
+                    <ImageBrush Stretch="Fill" ImageSource="ms-appx:///Assets/Piano Assets/Sharp Key.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:ConnectionId='10' Grid.Row="3" Grid.Column="1" Style="{StaticResource NoteBaseStyle}" Content="{Binding NotesUsed[9], Mode=OneWay, FallbackValue = NA}"                   >
+                <Button.Background>
+                    <ImageBrush Stretch="Fill" ImageSource="ms-appx:///Assets/Piano Assets/A Key.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:ConnectionId='11' Grid.Row="3" Grid.Column="2" Style="{StaticResource NoteBaseStyle}" Content="{Binding NotesUsed[10], Mode=OneWay, FallbackValue = NA}"                   >
+                <Button.Background>
+                    <ImageBrush Stretch="Fill" ImageSource="ms-appx:///Assets/Piano Assets/Sharp Key.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:ConnectionId='12' Grid.Row="3" Grid.Column="3" Style="{StaticResource NoteBaseStyle}" Content="{Binding NotesUsed[11], Mode=OneWay, FallbackValue = NA}"                   >
+                <Button.Background>
+                    <ImageBrush Stretch="Fill" ImageSource="ms-appx:///Assets/Piano Assets/B Key.png"/>
+                </Button.Background>
+            </Button>
         </Grid>
     </Grid>
 </UserControl>

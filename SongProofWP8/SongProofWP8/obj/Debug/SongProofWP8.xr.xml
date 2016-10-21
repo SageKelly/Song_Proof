@@ -314,6 +314,10 @@
     <RootType FullName="Windows.UI.Xaml.Media.Animation.CircleEase">
       <RootProperty Name="EasingMode" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Media.ImageBrush">
+      <RootProperty Name="Stretch" />
+      <RootProperty Name="ImageSource" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ItemsControl">
       <RootProperty Name="Opacity" />
       <RootProperty Name="ItemsSource" />
