@@ -285,10 +285,11 @@ namespace SongProofWP8.UserControls
                 case DataHolder.ProofingTypes.PlacingTheNote:
                     if (DataHolder.PTNHasBeenSet)
                     {
-                        SelectedKey = DataHolder.Key;
                         SelectedScaleGroup = DataHolder.ScaleGroup;
                         SelectedScale = DataHolder.Scale;
                         ShowSharp = DataHolder.ShowSharp;
+                        //Make sure the key is set AFTER ShowSharp, or it won't be set at all!
+                        SelectedKey = DataHolder.Key;
                         SelectedDifficulty = DataHolder.Diff;
                         NoteAmount = DataHolder.NoteCount; 
                     }
