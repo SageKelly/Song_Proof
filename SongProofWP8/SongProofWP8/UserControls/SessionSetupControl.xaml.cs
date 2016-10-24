@@ -280,9 +280,31 @@ namespace SongProofWP8.UserControls
         /// <param name="e"></param>
         private void BSet_Previous(object sender, RoutedEventArgs e)
         {
-            if (true)
+            switch (DataHolder.ProofType)
             {
-
+                case DataHolder.ProofingTypes.PlacingTheNote:
+                    if (DataHolder.PTNHasBeenSet)
+                    {
+                        SelectedScaleGroup = DataHolder.ScaleGroup;
+                        SelectedScale = DataHolder.Scale;
+                        ShowSharp = DataHolder.ShowSharp;
+                        //Make sure the key is set AFTER ShowSharp, or it won't be set at all!
+                        SelectedKey = DataHolder.Key;
+                        SelectedDifficulty = DataHolder.Diff;
+                        NoteAmount = DataHolder.NoteCount; 
+                    }
+                    break;
+                case DataHolder.ProofingTypes.HW3:
+                    if (DataHolder.HW3HasBeenSet)
+                    {
+                        ShowSharp = DataHolder.ShowSharp;
+                        SelectedDifficulty = DataHolder.Diff;
+                        NoteAmount = DataHolder.NoteCount; 
+                    }
+                    break;
+                default:
+                    //just set everything
+                    break;
             }
         }
     }

@@ -1,0 +1,193 @@
+﻿Merge remote-tracking branch 'refs/remotes/origin/master' into ChordProof
+
+# Conflicts:
+#	SongProofWP8/SongProofWP8/bin/Debug/Pages/SessionResultsPage.xbf
+#	SongProofWP8/SongProofWP8/bin/Debug/SongProofWP8.xr.xml
+#	SongProofWP8/SongProofWP8/bin/Debug/UserControls/ListResultsControl.xbf
+#	SongProofWP8/SongProofWP8/bin/Debug/UserControls/PianoKeyControl.xbf
+#	SongProofWP8/SongProofWP8/bin/Debug/UserControls/ProgressTrackerControl.xbf
+#	SongProofWP8/SongProofWP8/obj/Debug/Pages/SessionResultsPage.g.cs
+#	SongProofWP8/SongProofWP8/obj/Debug/Pages/SessionResultsPage.g.i.cs
+#	SongProofWP8/SongProofWP8/obj/Debug/Pages/SessionResultsPage.xbf
+#	SongProofWP8/SongProofWP8/obj/Debug/SongProofWP8.xr.xml
+#	SongProofWP8/SongProofWP8/obj/Debug/UserControls/ListResultsControl.g.cs
+#	SongProofWP8/SongProofWP8/obj/Debug/UserControls/ListResultsControl.g.i.cs
+#	SongProofWP8/SongProofWP8/obj/Debug/UserControls/ListResultsControl.xbf
+#	SongProofWP8/SongProofWP8/obj/Debug/UserControls/PianoKeyControl.g.cs
+#	SongProofWP8/SongProofWP8/obj/Debug/UserControls/PianoKeyControl.g.i.cs
+#	SongProofWP8/SongProofWP8/obj/Debug/UserControls/PianoKeyControl.xbf
+#	SongProofWP8/SongProofWP8/obj/Debug/UserControls/ProgressTrackerControl.g.cs
+#	SongProofWP8/SongProofWP8/obj/Debug/UserControls/ProgressTrackerControl.g.i.cs
+#	SongProofWP8/SongProofWP8/obj/Debug/UserControls/ProgressTrackerControl.xbf
+#	SongProofWP8/SongProofWP8/obj/Debug/XamlTypeInfo.g.cs
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#	.git/MERGE_HEAD
+# and try again.
+
+merging master into branch
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch ChordProof
+# Your branch is up-to-date with 'origin/ChordProof'.
+#
+# All conflicts fixed but you are still merging.
+#
+# Changes to be committed:
+#	new file:   .gitignore
+#	new file:   SongProofWP8/SongProofWP8/Assets/A Key.png
+#	new file:   SongProofWP8/SongProofWP8/Assets/A Key.svg
+#	new file:   SongProofWP8/SongProofWP8/Assets/B Key.png
+#	new file:   SongProofWP8/SongProofWP8/Assets/B Key.svg
+#	new file:   SongProofWP8/SongProofWP8/Assets/C Key.png
+#	new file:   SongProofWP8/SongProofWP8/Assets/C Key.svg
+#	new file:   SongProofWP8/SongProofWP8/Assets/C Sharp Key.svg
+#	new file:   SongProofWP8/SongProofWP8/Assets/D Key.png
+#	new file:   SongProofWP8/SongProofWP8/Assets/D Key.svg
+#	new file:   SongProofWP8/SongProofWP8/Assets/E Key.png
+#	new file:   SongProofWP8/SongProofWP8/Assets/E Key.svg
+#	new file:   SongProofWP8/SongProofWP8/Assets/F Key.png
+#	new file:   SongProofWP8/SongProofWP8/Assets/F Key.svg
+#	new file:   SongProofWP8/SongProofWP8/Assets/G Key.png
+#	new file:   SongProofWP8/SongProofWP8/Assets/G Key.svg
+#	new file:   SongProofWP8/SongProofWP8/Assets/Piano Keys V1.svg
+#	new file:   SongProofWP8/SongProofWP8/Assets/Piano Keys.svg
+#	new file:   SongProofWP8/SongProofWP8/Assets/Sharp Key.png
+#	modified:   SongProofWP8/SongProofWP8/Classes/DataHolder.cs
+#	modified:   SongProofWP8/SongProofWP8/Pages/PlacingTheNoteSetupPage.xaml.cs
+#	renamed:    SongProofWP8/SongProofWP8/obj/Debug/Pages/SessionPage.xaml -> SongProofWP8/SongProofWP8/Pages/ScaleRecitePage.xaml
+#	new file:   SongProofWP8/SongProofWP8/Pages/ScaleRecitePage.xaml.cs
+#	modified:   SongProofWP8/SongProofWP8/Pages/SessionPage.xaml.cs
+#	modified:   SongProofWP8/SongProofWP8/Pages/SessionResultsPage.xaml
+#	modified:   SongProofWP8/SongProofWP8/Pages/SessionResultsPage.xaml.cs
+#	modified:   SongProofWP8/SongProofWP8/Pages/SessionSetupPage.xaml.cs
+#	modified:   SongProofWP8/SongProofWP8/SongProofWP8.csproj
+#	modified:   SongProofWP8/SongProofWP8/UserControls/HW3IntervalHolderControl.xaml.cs
+#	modified:   SongProofWP8/SongProofWP8/UserControls/ListResultsControl.xaml
+#	modified:   SongProofWP8/SongProofWP8/UserControls/PianoKeyControl.xaml
+#	modified:   SongProofWP8/SongProofWP8/UserControls/PianoKeyControl.xaml.cs
+#	modified:   SongProofWP8/SongProofWP8/UserControls/ProgressTrackerControl.xaml
+#	modified:   SongProofWP8/SongProofWP8/UserControls/ProgressTrackerControl.xaml.cs
+#	modified:   SongProofWP8/SongProofWP8/UserControls/SessionSetupControl.xaml.cs
+#	deleted:    SongProofWP8/SongProofWP8/bin/Debug/App.xbf
+#	deleted:    SongProofWP8/SongProofWP8/bin/Debug/AppxManifest.xml
+#	deleted:    SongProofWP8/SongProofWP8/bin/Debug/Pages/HW3SetupPage.xbf
+#	deleted:    SongProofWP8/SongProofWP8/bin/Debug/Pages/MainPage.xbf
+#	deleted:    SongProofWP8/SongProofWP8/bin/Debug/Pages/PlacingTheNoteSetupPage.xbf
+#	deleted:    SongProofWP8/SongProofWP8/bin/Debug/Pages/ScaleProofTestListPage.xbf
+#	deleted:    SongProofWP8/SongProofWP8/bin/Debug/Pages/SessionPage.xbf
+#	deleted:    SongProofWP8/SongProofWP8/bin/Debug/Pages/SessionResultsPage.xbf
+#	deleted:    SongProofWP8/SongProofWP8/bin/Debug/Pages/SessionSetupPage.xbf
+#	deleted:    SongProofWP8/SongProofWP8/bin/Debug/Pages/ViewScale.xbf
+#	deleted:    SongProofWP8/SongProofWP8/bin/Debug/SongProofWP8.build.appxrecipe
+#	deleted:    SongProofWP8/SongProofWP8/bin/Debug/SongProofWP8.xr.xml
+#	deleted:    SongProofWP8/SongProofWP8/bin/Debug/UserControls/HW3ButtonsControl.xbf
+#	deleted:    SongProofWP8/SongProofWP8/bin/Debug/UserControls/HW3IntervalHolderControl.xbf
+#	deleted:    SongProofWP8/SongProofWP8/bin/Debug/UserControls/HW3ProgressTrackerControl.xbf
+#	deleted:    SongProofWP8/SongProofWP8/bin/Debug/UserControls/ListResultsControl.xbf
+#	deleted:    SongProofWP8/SongProofWP8/bin/Debug/UserControls/PianoKeyControl.xbf
+#	deleted:    SongProofWP8/SongProofWP8/bin/Debug/UserControls/ProgressTrackerControl.xbf
+#	deleted:    SongProofWP8/SongProofWP8/bin/Debug/UserControls/SessionButtonsControl.xbf
+#	deleted:    SongProofWP8/SongProofWP8/bin/Debug/UserControls/SessionSetupControl.xbf
+#	deleted:    SongProofWP8/SongProofWP8/bin/Debug/UserControls/TitleBarControl.xbf
+#	deleted:    SongProofWP8/SongProofWP8/bin/Debug/resources.pri
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/App.g.cs
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/App.g.i.cs
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/App.xaml
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/App.xbf
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/MultipleQualifiersPerDimensionFound.txt
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/Pages/HW3Controls.g.cs
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/Pages/HW3Controls.g.i.cs
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/Pages/HW3Display.g.cs
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/Pages/HW3Display.g.i.cs
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/Pages/HW3SetupPage.g.cs
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/Pages/HW3SetupPage.g.i.cs
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/Pages/HW3SetupPage.xaml
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/Pages/HW3SetupPage.xbf
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/Pages/MainPage.g.cs
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/Pages/MainPage.g.i.cs
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/Pages/MainPage.xaml
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/Pages/MainPage.xbf
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/Pages/PlacingTheNoteSetupPage.g.cs
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/Pages/PlacingTheNoteSetupPage.g.i.cs
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/Pages/PlacingTheNoteSetupPage.xaml
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/Pages/PlacingTheNoteSetupPage.xbf
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/Pages/ScaleProofTestListPage.g.cs
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/Pages/ScaleProofTestListPage.g.i.cs
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/Pages/ScaleProofTestListPage.xaml
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/Pages/ScaleProofTestListPage.xbf
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/Pages/SessionPage.g.cs
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/Pages/SessionPage.g.i.cs
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/Pages/SessionPage.xbf
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/Pages/SessionResultsPage.g.cs
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/Pages/SessionResultsPage.g.i.cs
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/Pages/SessionResultsPage.xaml
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/Pages/SessionResultsPage.xbf
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/Pages/SessionSetupPage.g.cs
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/Pages/SessionSetupPage.g.i.cs
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/Pages/SessionSetupPage.xaml
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/Pages/SessionSetupPage.xbf
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/Pages/SetupPage.g.cs
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/Pages/SetupPage.g.i.cs
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/Pages/ViewScale.g.cs
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/Pages/ViewScale.g.i.cs
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/Pages/ViewScale.xaml
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/Pages/ViewScale.xbf
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/ProjectArchitectures.txt
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/SongProofWP8.csproj.FileListAbsolute.txt
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/SongProofWP8.xr.xml
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/UserControls/HW3ButtonsControl.g.cs
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/UserControls/HW3ButtonsControl.g.i.cs
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/UserControls/HW3ButtonsControl.xaml
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/UserControls/HW3ButtonsControl.xbf
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/UserControls/HW3IntervalHolderControl.g.cs
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/UserControls/HW3IntervalHolderControl.g.i.cs
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/UserControls/HW3IntervalHolderControl.xaml
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/UserControls/HW3IntervalHolderControl.xbf
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/UserControls/HW3ProgressTrackerControl.g.cs
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/UserControls/HW3ProgressTrackerControl.g.i.cs
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/UserControls/HW3ProgressTrackerControl.xaml
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/UserControls/HW3ProgressTrackerControl.xbf
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/UserControls/ListResultsControl.g.cs
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/UserControls/ListResultsControl.g.i.cs
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/UserControls/ListResultsControl.xaml
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/UserControls/ListResultsControl.xbf
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/UserControls/PianoKeyControl.g.cs
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/UserControls/PianoKeyControl.g.i.cs
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/UserControls/PianoKeyControl.xaml
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/UserControls/PianoKeyControl.xbf
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/UserControls/ProgressTrackerControl.g.cs
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/UserControls/ProgressTrackerControl.g.i.cs
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/UserControls/ProgressTrackerControl.xaml
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/UserControls/ProgressTrackerControl.xbf
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/UserControls/SessionButtonsControl.g.cs
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/UserControls/SessionButtonsControl.g.i.cs
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/UserControls/SessionButtonsControl.xaml
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/UserControls/SessionButtonsControl.xbf
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/UserControls/SessionSetupControl.g.cs
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/UserControls/SessionSetupControl.g.i.cs
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/UserControls/SessionSetupControl.xaml
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/UserControls/SessionSetupControl.xbf
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/UserControls/TitleBarControl.g.cs
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/UserControls/TitleBarControl.g.i.cs
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/UserControls/TitleBarControl.xaml
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/UserControls/TitleBarControl.xbf
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/XamlSaveStateFile.xml
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/XamlTypeInfo.g.cs
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/XamlTypeInfo.g.cs.backup
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/layout.resfiles
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/layout.resfiles.intermediate
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/pri.resfiles
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/pri.resfiles.intermediate
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/priconfig.xml
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/priconfig.xml.intermediate
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/qualifiers.txt
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/qualifiers.txt.intermediate
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/resources.resfiles
+#	deleted:    SongProofWP8/SongProofWP8/obj/Debug/resources.resfiles.intermediate
+#
+

@@ -23,18 +23,44 @@ namespace SongProofWP8.UserControls
     {
         private MethodInfo _noteClickMethod;
         private object _methodTarget;
+        public string[] NotesUsed { get; private set; }
+        private List<Button> Notes;
 
         public PianoKeyControl(string[] sessionPiano, string[] usedNotes,
             string pianoKeysMethodName, object methodTarget, Type targetType)
         {
             this.InitializeComponent();
             DataContext = this;
-            IC_Buttons.ItemsSource = sessionPiano;
             _noteClickMethod = targetType.GetTypeInfo().GetDeclaredMethod(pianoKeysMethodName);
             _methodTarget = methodTarget;
-
             LBScale.ItemsSource = usedNotes;
-            IC_Buttons.ItemsSource = sessionPiano;
+            Notes = new List<Button>();
+
+            foreach (UIElement child in NoteGrid.Children.OfType<Button>())
+            {
+                Notes.Add((Button)child);
+            }
+
+            if (Notes.Count == sessionPiano.Length)
+            {
+                for (int i = 0; i < Notes.Count; i++)
+                {
+                    Notes[i].Content = sessionPiano[i];
+                }
+            }
+            else
+            {
+                throw new Exception("An error occurred between Note Count and Session Piano");
+            }
+        }
+
+        public void InstallInCenter(Control control)
+        {
+            NoteGrid.Children.Add(control);
+            Grid.SetRow(control, 1);
+            Grid.SetRowSpan(control, 2);
+            Grid.SetColumn(control, 1);
+            Grid.SetColumnSpan(control, 2);
         }
 
         private void _noteClick(object sender, RoutedEventArgs e)

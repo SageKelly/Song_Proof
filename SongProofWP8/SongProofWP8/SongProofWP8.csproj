@@ -101,6 +101,9 @@
     <Compile Include="Pages\ScaleProofTestListPage.xaml.cs">
       <DependentUpon>ScaleProofTestListPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ScaleRecitePage.xaml.cs">
+      <DependentUpon>ScaleRecitePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\SessionPage.xaml.cs">
       <DependentUpon>SessionPage.xaml</DependentUpon>
     </Compile>
@@ -197,6 +200,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\ScaleProofTestListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ScaleRecitePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
