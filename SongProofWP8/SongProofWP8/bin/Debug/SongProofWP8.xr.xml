@@ -164,6 +164,7 @@
     <RootType FullName="Windows.UI.Xaml.Media.CompositeTransform">
       <RootProperty Name="ScaleY" />
       <RootProperty Name="ScaleX" />
+      <RootProperty Name="Rotation" />
       <RootProperty Name="TranslateX" />
     </RootType>
     <RootType FullName="Microsoft.Xaml.Tools.DirectUI.ProxyTypes.StaticResourceExtension" />
@@ -171,6 +172,8 @@
       <RootProperty Name="Background" />
       <RootProperty Name="Content" />
       <RootProperty Name="BottomAppBar" />
+      <RootProperty Name="RenderTransformOrigin" />
+      <RootProperty Name="RenderTransform" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Media.Animation.TransitionCollection" />
     <RootType FullName="Windows.UI.Xaml.Media.Animation.EntranceThemeTransition" />
@@ -314,10 +317,6 @@
     <RootType FullName="Windows.UI.Xaml.Media.Animation.CircleEase">
       <RootProperty Name="EasingMode" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Media.ImageBrush">
-      <RootProperty Name="Stretch" />
-      <RootProperty Name="ImageSource" />
-    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ItemsControl">
       <RootProperty Name="Opacity" />
       <RootProperty Name="ItemsSource" />
@@ -334,6 +333,12 @@
     <RootType FullName="Windows.UI.Xaml.Controls.WrapGrid">
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Orientation" />
+    </RootType>
+    <RootType FullName="SongProofWP8.UserControls.NumberButtonControl" />
+    <RootType FullName="Microsoft.Xaml.Tools.DirectUI.ProxyTypes.NullExtension" />
+    <RootType FullName="Windows.UI.Xaml.Media.ImageBrush">
+      <RootProperty Name="Stretch" />
+      <RootProperty Name="ImageSource" />
     </RootType>
     <RootType FullName="SongProofWP8.UserControls.PianoKeyControl" />
     <RootType FullName="Windows.UI.Xaml.Media.Animation.ColorAnimationUsingKeyFrames">

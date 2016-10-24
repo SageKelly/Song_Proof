@@ -123,6 +123,9 @@
     <Compile Include="UserControls\ListResultsControl.xaml.cs">
       <DependentUpon>ListResultsControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\NumberButtonControl.xaml.cs">
+      <DependentUpon>NumberButtonControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\PianoKeyControl.xaml.cs">
       <DependentUpon>PianoKeyControl.xaml</DependentUpon>
     </Compile>
@@ -237,6 +240,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\ListResultsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\NumberButtonControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

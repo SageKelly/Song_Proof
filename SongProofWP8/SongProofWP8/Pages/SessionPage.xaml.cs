@@ -209,7 +209,7 @@ namespace SongProofWP8.Pages
                     PianoKeyControl pkc = new PianoKeyControl(curSession.Piano, curSession.ScaleUsed.Notes, "NoteClick", this, typeof(SessionPage));
                     LayoutRoot.Children.Add(pkc);
                     Grid.SetRow(pkc, 2);
-                    pkc.InstallInCenter(ptc);
+                    pkc.InstallControl(ptc);
                     break;
                 case DataHolder.ProofingTypes.HW3:
                     HW3ButtonsControl hbc = new HW3ButtonsControl(IH, IW, I3, "IntervalClick", this, typeof(SessionPage));
@@ -228,6 +228,36 @@ namespace SongProofWP8.Pages
                     break;
                 case DataHolder.ProofingTypes.HW3:
                     curSession.StoreData(index, correct, curSession.Diff.GetHashCode() - hptc.RemainingTime);
+                    break;
+            }
+        }
+
+        private void SetScreenOrientation()
+        {
+            switch (DataHolder.ProofType)
+            {
+                case DataHolder.ProofingTypes.Dummy:
+                    break;
+                case DataHolder.ProofingTypes.BuildTheScale:
+                    break;
+                case DataHolder.ProofingTypes.PlacingTheNote:
+                    PageRotation.SetValue(CompositeTransform.RotationProperty, 90);
+
+                    object pageWidth = (double)GetValue(WidthProperty);
+                    SetValue(WidthProperty, this.GetValue(HeightProperty));
+                    SetValue(HeightProperty, pageWidth);
+                    break;
+                case DataHolder.ProofingTypes.FindTheVoice:
+                    break;
+                case DataHolder.ProofingTypes.BuildTheChord:
+                    break;
+                case DataHolder.ProofingTypes.HW3:
+                    break;
+                case DataHolder.ProofingTypes.GrabBag:
+                    break;
+                case DataHolder.ProofingTypes.ScaleWriting:
+                    break;
+                default:
                     break;
             }
         }

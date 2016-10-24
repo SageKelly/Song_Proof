@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -15,19 +14,18 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-
 // The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
 
 namespace SongProofWP8.UserControls
 {
-    public sealed partial class PianoKeyControl : UserControl
+    public sealed partial class NumberButtonControl : UserControl
     {
         private MethodInfo _noteClickMethod;
         private object _methodTarget;
         public string[] NotesUsed { get; private set; }
         private List<Button> Notes;
 
-        public PianoKeyControl(string[] sessionPiano, string[] usedNotes,
+        public NumberButtonControl(string[] sessionPiano, string[] usedNotes,
             string pianoKeysMethodName, object methodTarget, Type targetType)
         {
             this.InitializeComponent();
@@ -37,12 +35,7 @@ namespace SongProofWP8.UserControls
             LBScale.ItemsSource = usedNotes;
             Notes = new List<Button>();
 
-            foreach (UIElement child in WhiteKeyGrid.Children.OfType<Button>())
-            {
-                Notes.Add((Button)child);
-            }
-
-            foreach (UIElement child in SharpKeyGrid.Children.OfType<Button>())
+            foreach (UIElement child in NoteGrid.Children.OfType<Button>())
             {
                 Notes.Add((Button)child);
             }
@@ -56,15 +49,17 @@ namespace SongProofWP8.UserControls
             }
             else
             {
-                Debug.WriteLine("An error occurred between Note Count and Session Piano {0}", Notes.Count);
                 throw new Exception("An error occurred between Note Count and Session Piano");
             }
         }
 
-        public void InstallControl(Control control)
+        public void InstallInCenter(Control control)
         {
             NoteGrid.Children.Add(control);
             Grid.SetRow(control, 1);
+            Grid.SetRowSpan(control, 2);
+            Grid.SetColumn(control, 1);
+            Grid.SetColumnSpan(control, 2);
         }
 
         private void _noteClick(object sender, RoutedEventArgs e)

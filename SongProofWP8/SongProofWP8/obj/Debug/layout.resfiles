@@ -43,6 +43,7 @@ UserControls\HW3ButtonsControl.xbf
 UserControls\HW3IntervalHolderControl.xbf
 UserControls\HW3ProgressTrackerControl.xbf
 UserControls\ListResultsControl.xbf
+UserControls\NumberButtonControl.xbf
 UserControls\PianoKeyControl.xbf
 UserControls\ProgressTrackerControl.xbf
 UserControls\SessionButtonsControl.xbf

@@ -124,7 +124,7 @@ namespace SongProofWP8.SongProofWP8_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[35];
+            _typeNameTable = new string[36];
             _typeNameTable[0] = "Windows.UI.Text.FontWeight";
             _typeNameTable[1] = "System.ValueType";
             _typeNameTable[2] = "Object";
@@ -147,21 +147,22 @@ namespace SongProofWP8.SongProofWP8_XamlTypeInfo
             _typeNameTable[19] = "Double";
             _typeNameTable[20] = "Boolean";
             _typeNameTable[21] = "SongProofWP8.UserControls.ListResultsControl";
-            _typeNameTable[22] = "SongProofWP8.UserControls.PianoKeyControl";
-            _typeNameTable[23] = "SongProofWP8.UserControls.ProgressTrackerControl";
-            _typeNameTable[24] = "SongProofWP8.UserControls.SessionButtonsControl";
-            _typeNameTable[25] = "SongProofWP8.Pages.SessionResultsPage";
-            _typeNameTable[26] = "SongProofWP8.Pages.PlacingTheNoteSetupPage";
-            _typeNameTable[27] = "SongProofWP8.Common.NavigationHelper";
-            _typeNameTable[28] = "Windows.UI.Xaml.DependencyObject";
-            _typeNameTable[29] = "SongProofWP8.Common.ObservableDictionary";
-            _typeNameTable[30] = "SongProofWP8.Pages.ViewScale";
-            _typeNameTable[31] = "SongProofWP8.UserControls.SessionSetupControl";
-            _typeNameTable[32] = "SongProofWP8.ScaleResources.Difficulties";
-            _typeNameTable[33] = "System.Enum";
-            _typeNameTable[34] = "SongProofWP8.UserControls.TitleBarControl";
+            _typeNameTable[22] = "SongProofWP8.UserControls.NumberButtonControl";
+            _typeNameTable[23] = "SongProofWP8.UserControls.PianoKeyControl";
+            _typeNameTable[24] = "SongProofWP8.UserControls.ProgressTrackerControl";
+            _typeNameTable[25] = "SongProofWP8.UserControls.SessionButtonsControl";
+            _typeNameTable[26] = "SongProofWP8.Pages.SessionResultsPage";
+            _typeNameTable[27] = "SongProofWP8.Pages.PlacingTheNoteSetupPage";
+            _typeNameTable[28] = "SongProofWP8.Common.NavigationHelper";
+            _typeNameTable[29] = "Windows.UI.Xaml.DependencyObject";
+            _typeNameTable[30] = "SongProofWP8.Common.ObservableDictionary";
+            _typeNameTable[31] = "SongProofWP8.Pages.ViewScale";
+            _typeNameTable[32] = "SongProofWP8.UserControls.SessionSetupControl";
+            _typeNameTable[33] = "SongProofWP8.ScaleResources.Difficulties";
+            _typeNameTable[34] = "System.Enum";
+            _typeNameTable[35] = "SongProofWP8.UserControls.TitleBarControl";
 
-            _typeTable = new global::System.Type[35];
+            _typeTable = new global::System.Type[36];
             _typeTable[0] = typeof(global::Windows.UI.Text.FontWeight);
             _typeTable[1] = typeof(global::System.ValueType);
             _typeTable[2] = typeof(global::System.Object);
@@ -184,19 +185,20 @@ namespace SongProofWP8.SongProofWP8_XamlTypeInfo
             _typeTable[19] = typeof(global::System.Double);
             _typeTable[20] = typeof(global::System.Boolean);
             _typeTable[21] = typeof(global::SongProofWP8.UserControls.ListResultsControl);
-            _typeTable[22] = typeof(global::SongProofWP8.UserControls.PianoKeyControl);
-            _typeTable[23] = typeof(global::SongProofWP8.UserControls.ProgressTrackerControl);
-            _typeTable[24] = typeof(global::SongProofWP8.UserControls.SessionButtonsControl);
-            _typeTable[25] = typeof(global::SongProofWP8.Pages.SessionResultsPage);
-            _typeTable[26] = typeof(global::SongProofWP8.Pages.PlacingTheNoteSetupPage);
-            _typeTable[27] = typeof(global::SongProofWP8.Common.NavigationHelper);
-            _typeTable[28] = typeof(global::Windows.UI.Xaml.DependencyObject);
-            _typeTable[29] = typeof(global::SongProofWP8.Common.ObservableDictionary);
-            _typeTable[30] = typeof(global::SongProofWP8.Pages.ViewScale);
-            _typeTable[31] = typeof(global::SongProofWP8.UserControls.SessionSetupControl);
-            _typeTable[32] = typeof(global::SongProofWP8.ScaleResources.Difficulties);
-            _typeTable[33] = typeof(global::System.Enum);
-            _typeTable[34] = typeof(global::SongProofWP8.UserControls.TitleBarControl);
+            _typeTable[22] = typeof(global::SongProofWP8.UserControls.NumberButtonControl);
+            _typeTable[23] = typeof(global::SongProofWP8.UserControls.PianoKeyControl);
+            _typeTable[24] = typeof(global::SongProofWP8.UserControls.ProgressTrackerControl);
+            _typeTable[25] = typeof(global::SongProofWP8.UserControls.SessionButtonsControl);
+            _typeTable[26] = typeof(global::SongProofWP8.Pages.SessionResultsPage);
+            _typeTable[27] = typeof(global::SongProofWP8.Pages.PlacingTheNoteSetupPage);
+            _typeTable[28] = typeof(global::SongProofWP8.Common.NavigationHelper);
+            _typeTable[29] = typeof(global::Windows.UI.Xaml.DependencyObject);
+            _typeTable[30] = typeof(global::SongProofWP8.Common.ObservableDictionary);
+            _typeTable[31] = typeof(global::SongProofWP8.Pages.ViewScale);
+            _typeTable[32] = typeof(global::SongProofWP8.UserControls.SessionSetupControl);
+            _typeTable[33] = typeof(global::SongProofWP8.ScaleResources.Difficulties);
+            _typeTable[34] = typeof(global::System.Enum);
+            _typeTable[35] = typeof(global::SongProofWP8.UserControls.TitleBarControl);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -237,11 +239,11 @@ namespace SongProofWP8.SongProofWP8_XamlTypeInfo
         private object Activate_8_ScaleRecitePage() { return new global::SongProofWP8.Pages.ScaleRecitePage(); }
         private object Activate_9_SessionPage() { return new global::SongProofWP8.Pages.SessionPage(); }
         private object Activate_13_SessionSetupPage() { return new global::SongProofWP8.Pages.SessionSetupPage(); }
-        private object Activate_25_SessionResultsPage() { return new global::SongProofWP8.Pages.SessionResultsPage(); }
-        private object Activate_26_PlacingTheNoteSetupPage() { return new global::SongProofWP8.Pages.PlacingTheNoteSetupPage(); }
-        private object Activate_29_ObservableDictionary() { return new global::SongProofWP8.Common.ObservableDictionary(); }
-        private object Activate_30_ViewScale() { return new global::SongProofWP8.Pages.ViewScale(); }
-        private void MapAdd_29_ObservableDictionary(object instance, object key, object item)
+        private object Activate_26_SessionResultsPage() { return new global::SongProofWP8.Pages.SessionResultsPage(); }
+        private object Activate_27_PlacingTheNoteSetupPage() { return new global::SongProofWP8.Pages.PlacingTheNoteSetupPage(); }
+        private object Activate_30_ObservableDictionary() { return new global::SongProofWP8.Common.ObservableDictionary(); }
+        private object Activate_31_ViewScale() { return new global::SongProofWP8.Pages.ViewScale(); }
+        private void MapAdd_30_ObservableDictionary(object instance, object key, object item)
         {
             var collection = (global::System.Collections.Generic.IDictionary<global::System.String, global::System.Object>)instance;
             var newKey = (global::System.String)key;
@@ -395,14 +397,21 @@ namespace SongProofWP8.SongProofWP8_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 22:   //  SongProofWP8.UserControls.PianoKeyControl
+            case 22:   //  SongProofWP8.UserControls.NumberButtonControl
                 userType = new global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
                 userType.AddMemberName("NotesUsed");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 23:   //  SongProofWP8.UserControls.ProgressTrackerControl
+            case 23:   //  SongProofWP8.UserControls.PianoKeyControl
+                userType = new global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
+                userType.AddMemberName("NotesUsed");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 24:   //  SongProofWP8.UserControls.ProgressTrackerControl
                 userType = new global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
                 userType.AddMemberName("MinValue");
                 userType.AddMemberName("MaxValue");
@@ -416,57 +425,57 @@ namespace SongProofWP8.SongProofWP8_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 24:   //  SongProofWP8.UserControls.SessionButtonsControl
+            case 25:   //  SongProofWP8.UserControls.SessionButtonsControl
                 userType = new global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 25:   //  SongProofWP8.Pages.SessionResultsPage
+            case 26:   //  SongProofWP8.Pages.SessionResultsPage
                 userType = new global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_25_SessionResultsPage;
+                userType.Activator = Activate_26_SessionResultsPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 26:   //  SongProofWP8.Pages.PlacingTheNoteSetupPage
+            case 27:   //  SongProofWP8.Pages.PlacingTheNoteSetupPage
                 userType = new global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_26_PlacingTheNoteSetupPage;
+                userType.Activator = Activate_27_PlacingTheNoteSetupPage;
                 userType.AddMemberName("NavigationHelper");
                 userType.AddMemberName("DefaultViewModel");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 27:   //  SongProofWP8.Common.NavigationHelper
+            case 28:   //  SongProofWP8.Common.NavigationHelper
                 userType = new global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 28:   //  Windows.UI.Xaml.DependencyObject
+            case 29:   //  Windows.UI.Xaml.DependencyObject
                 xamlType = new global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 29:   //  SongProofWP8.Common.ObservableDictionary
+            case 30:   //  SongProofWP8.Common.ObservableDictionary
                 userType = new global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.DictionaryAdd = MapAdd_29_ObservableDictionary;
+                userType.DictionaryAdd = MapAdd_30_ObservableDictionary;
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 30:   //  SongProofWP8.Pages.ViewScale
+            case 31:   //  SongProofWP8.Pages.ViewScale
                 userType = new global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_30_ViewScale;
+                userType.Activator = Activate_31_ViewScale;
                 userType.AddMemberName("NavigationHelper");
                 userType.AddMemberName("DefaultViewModel");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 31:   //  SongProofWP8.UserControls.SessionSetupControl
+            case 32:   //  SongProofWP8.UserControls.SessionSetupControl
                 userType = new global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
                 userType.AddMemberName("NoteAmount");
                 userType.AddMemberName("SelectedScaleGroup");
@@ -478,7 +487,7 @@ namespace SongProofWP8.SongProofWP8_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 32:   //  SongProofWP8.ScaleResources.Difficulties
+            case 33:   //  SongProofWP8.ScaleResources.Difficulties
                 userType = new global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
                 userType.AddEnumValue("Zen", global::SongProofWP8.ScaleResources.Difficulties.Zen);
                 userType.AddEnumValue("Hard", global::SongProofWP8.ScaleResources.Difficulties.Hard);
@@ -488,12 +497,12 @@ namespace SongProofWP8.SongProofWP8_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 33:   //  System.Enum
+            case 34:   //  System.Enum
                 userType = new global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
                 xamlType = userType;
                 break;
 
-            case 34:   //  SongProofWP8.UserControls.TitleBarControl
+            case 35:   //  SongProofWP8.UserControls.TitleBarControl
                 userType = new global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
                 userType.AddMemberName("TextValue");
                 userType.AddMemberName("FontSizeValue");
@@ -625,182 +634,187 @@ namespace SongProofWP8.SongProofWP8_XamlTypeInfo
             var that = (global::SongProofWP8.UserControls.HW3ProgressTrackerControl)instance;
             that.CountingDown = (global::System.Boolean)Value;
         }
-        private object get_14_PianoKeyControl_NotesUsed(object instance)
+        private object get_14_NumberButtonControl_NotesUsed(object instance)
+        {
+            var that = (global::SongProofWP8.UserControls.NumberButtonControl)instance;
+            return that.NotesUsed;
+        }
+        private object get_15_PianoKeyControl_NotesUsed(object instance)
         {
             var that = (global::SongProofWP8.UserControls.PianoKeyControl)instance;
             return that.NotesUsed;
         }
-        private object get_15_ProgressTrackerControl_MinValue(object instance)
+        private object get_16_ProgressTrackerControl_MinValue(object instance)
         {
             var that = (global::SongProofWP8.UserControls.ProgressTrackerControl)instance;
             return that.MinValue;
         }
-        private void set_15_ProgressTrackerControl_MinValue(object instance, object Value)
+        private void set_16_ProgressTrackerControl_MinValue(object instance, object Value)
         {
             var that = (global::SongProofWP8.UserControls.ProgressTrackerControl)instance;
             that.MinValue = (global::System.Int32)Value;
         }
-        private object get_16_ProgressTrackerControl_MaxValue(object instance)
+        private object get_17_ProgressTrackerControl_MaxValue(object instance)
         {
             var that = (global::SongProofWP8.UserControls.ProgressTrackerControl)instance;
             return that.MaxValue;
         }
-        private void set_16_ProgressTrackerControl_MaxValue(object instance, object Value)
+        private void set_17_ProgressTrackerControl_MaxValue(object instance, object Value)
         {
             var that = (global::SongProofWP8.UserControls.ProgressTrackerControl)instance;
             that.MaxValue = (global::System.Int32)Value;
         }
-        private object get_17_ProgressTrackerControl_TestingLabel(object instance)
+        private object get_18_ProgressTrackerControl_TestingLabel(object instance)
         {
             var that = (global::SongProofWP8.UserControls.ProgressTrackerControl)instance;
             return that.TestingLabel;
         }
-        private void set_17_ProgressTrackerControl_TestingLabel(object instance, object Value)
+        private void set_18_ProgressTrackerControl_TestingLabel(object instance, object Value)
         {
             var that = (global::SongProofWP8.UserControls.ProgressTrackerControl)instance;
             that.TestingLabel = (global::System.String)Value;
         }
-        private object get_18_ProgressTrackerControl_TestingValue(object instance)
+        private object get_19_ProgressTrackerControl_TestingValue(object instance)
         {
             var that = (global::SongProofWP8.UserControls.ProgressTrackerControl)instance;
             return that.TestingValue;
         }
-        private void set_18_ProgressTrackerControl_TestingValue(object instance, object Value)
+        private void set_19_ProgressTrackerControl_TestingValue(object instance, object Value)
         {
             var that = (global::SongProofWP8.UserControls.ProgressTrackerControl)instance;
             that.TestingValue = (global::System.String)Value;
         }
-        private object get_19_ProgressTrackerControl_PBValue(object instance)
+        private object get_20_ProgressTrackerControl_PBValue(object instance)
         {
             var that = (global::SongProofWP8.UserControls.ProgressTrackerControl)instance;
             return that.PBValue;
         }
-        private void set_19_ProgressTrackerControl_PBValue(object instance, object Value)
+        private void set_20_ProgressTrackerControl_PBValue(object instance, object Value)
         {
             var that = (global::SongProofWP8.UserControls.ProgressTrackerControl)instance;
             that.PBValue = (global::System.Double)Value;
         }
-        private object get_20_ProgressTrackerControl_RemainingTime(object instance)
+        private object get_21_ProgressTrackerControl_RemainingTime(object instance)
         {
             var that = (global::SongProofWP8.UserControls.ProgressTrackerControl)instance;
             return that.RemainingTime;
         }
-        private object get_21_ProgressTrackerControl_CountingDown(object instance)
+        private object get_22_ProgressTrackerControl_CountingDown(object instance)
         {
             var that = (global::SongProofWP8.UserControls.ProgressTrackerControl)instance;
             return that.CountingDown;
         }
-        private void set_21_ProgressTrackerControl_CountingDown(object instance, object Value)
+        private void set_22_ProgressTrackerControl_CountingDown(object instance, object Value)
         {
             var that = (global::SongProofWP8.UserControls.ProgressTrackerControl)instance;
             that.CountingDown = (global::System.Boolean)Value;
         }
-        private object get_22_ProgressTrackerControl_TrackingTime(object instance)
+        private object get_23_ProgressTrackerControl_TrackingTime(object instance)
         {
             var that = (global::SongProofWP8.UserControls.ProgressTrackerControl)instance;
             return that.TrackingTime;
         }
-        private void set_22_ProgressTrackerControl_TrackingTime(object instance, object Value)
+        private void set_23_ProgressTrackerControl_TrackingTime(object instance, object Value)
         {
             var that = (global::SongProofWP8.UserControls.ProgressTrackerControl)instance;
             that.TrackingTime = (global::System.Boolean)Value;
         }
-        private object get_23_PlacingTheNoteSetupPage_NavigationHelper(object instance)
+        private object get_24_PlacingTheNoteSetupPage_NavigationHelper(object instance)
         {
             var that = (global::SongProofWP8.Pages.PlacingTheNoteSetupPage)instance;
             return that.NavigationHelper;
         }
-        private object get_24_PlacingTheNoteSetupPage_DefaultViewModel(object instance)
+        private object get_25_PlacingTheNoteSetupPage_DefaultViewModel(object instance)
         {
             var that = (global::SongProofWP8.Pages.PlacingTheNoteSetupPage)instance;
             return that.DefaultViewModel;
         }
-        private object get_25_ViewScale_NavigationHelper(object instance)
+        private object get_26_ViewScale_NavigationHelper(object instance)
         {
             var that = (global::SongProofWP8.Pages.ViewScale)instance;
             return that.NavigationHelper;
         }
-        private object get_26_ViewScale_DefaultViewModel(object instance)
+        private object get_27_ViewScale_DefaultViewModel(object instance)
         {
             var that = (global::SongProofWP8.Pages.ViewScale)instance;
             return that.DefaultViewModel;
         }
-        private object get_27_SessionSetupControl_NoteAmount(object instance)
+        private object get_28_SessionSetupControl_NoteAmount(object instance)
         {
             var that = (global::SongProofWP8.UserControls.SessionSetupControl)instance;
             return that.NoteAmount;
         }
-        private void set_27_SessionSetupControl_NoteAmount(object instance, object Value)
+        private void set_28_SessionSetupControl_NoteAmount(object instance, object Value)
         {
             var that = (global::SongProofWP8.UserControls.SessionSetupControl)instance;
             that.NoteAmount = (global::System.Int32)Value;
         }
-        private object get_28_SessionSetupControl_SelectedScaleGroup(object instance)
+        private object get_29_SessionSetupControl_SelectedScaleGroup(object instance)
         {
             var that = (global::SongProofWP8.UserControls.SessionSetupControl)instance;
             return that.SelectedScaleGroup;
         }
-        private void set_28_SessionSetupControl_SelectedScaleGroup(object instance, object Value)
+        private void set_29_SessionSetupControl_SelectedScaleGroup(object instance, object Value)
         {
             var that = (global::SongProofWP8.UserControls.SessionSetupControl)instance;
             that.SelectedScaleGroup = (global::System.String)Value;
         }
-        private object get_29_SessionSetupControl_SelectedScale(object instance)
+        private object get_30_SessionSetupControl_SelectedScale(object instance)
         {
             var that = (global::SongProofWP8.UserControls.SessionSetupControl)instance;
             return that.SelectedScale;
         }
-        private void set_29_SessionSetupControl_SelectedScale(object instance, object Value)
+        private void set_30_SessionSetupControl_SelectedScale(object instance, object Value)
         {
             var that = (global::SongProofWP8.UserControls.SessionSetupControl)instance;
             that.SelectedScale = (global::System.Object)Value;
         }
-        private object get_30_SessionSetupControl_SelectedKey(object instance)
+        private object get_31_SessionSetupControl_SelectedKey(object instance)
         {
             var that = (global::SongProofWP8.UserControls.SessionSetupControl)instance;
             return that.SelectedKey;
         }
-        private void set_30_SessionSetupControl_SelectedKey(object instance, object Value)
+        private void set_31_SessionSetupControl_SelectedKey(object instance, object Value)
         {
             var that = (global::SongProofWP8.UserControls.SessionSetupControl)instance;
             that.SelectedKey = (global::System.String)Value;
         }
-        private object get_31_SessionSetupControl_SelectedDifficulty(object instance)
+        private object get_32_SessionSetupControl_SelectedDifficulty(object instance)
         {
             var that = (global::SongProofWP8.UserControls.SessionSetupControl)instance;
             return that.SelectedDifficulty;
         }
-        private void set_31_SessionSetupControl_SelectedDifficulty(object instance, object Value)
+        private void set_32_SessionSetupControl_SelectedDifficulty(object instance, object Value)
         {
             var that = (global::SongProofWP8.UserControls.SessionSetupControl)instance;
             that.SelectedDifficulty = (global::SongProofWP8.ScaleResources.Difficulties)Value;
         }
-        private object get_32_SessionSetupControl_ShowSharp(object instance)
+        private object get_33_SessionSetupControl_ShowSharp(object instance)
         {
             var that = (global::SongProofWP8.UserControls.SessionSetupControl)instance;
             return that.ShowSharp;
         }
-        private void set_32_SessionSetupControl_ShowSharp(object instance, object Value)
+        private void set_33_SessionSetupControl_ShowSharp(object instance, object Value)
         {
             var that = (global::SongProofWP8.UserControls.SessionSetupControl)instance;
             that.ShowSharp = (global::System.Boolean)Value;
         }
-        private object get_33_TitleBarControl_TextValue(object instance)
+        private object get_34_TitleBarControl_TextValue(object instance)
         {
             var that = (global::SongProofWP8.UserControls.TitleBarControl)instance;
             return that.TextValue;
         }
-        private void set_33_TitleBarControl_TextValue(object instance, object Value)
+        private void set_34_TitleBarControl_TextValue(object instance, object Value)
         {
             var that = (global::SongProofWP8.UserControls.TitleBarControl)instance;
             that.TextValue = (global::System.String)Value;
         }
-        private object get_34_TitleBarControl_FontSizeValue(object instance)
+        private object get_35_TitleBarControl_FontSizeValue(object instance)
         {
             var that = (global::SongProofWP8.UserControls.TitleBarControl)instance;
             return that.FontSizeValue;
         }
-        private void set_34_TitleBarControl_FontSizeValue(object instance, object Value)
+        private void set_35_TitleBarControl_FontSizeValue(object instance, object Value)
         {
             var that = (global::SongProofWP8.UserControls.TitleBarControl)instance;
             that.FontSizeValue = (global::System.Double)Value;
@@ -897,131 +911,137 @@ namespace SongProofWP8.SongProofWP8_XamlTypeInfo
                 xamlMember.Getter = get_13_HW3ProgressTrackerControl_CountingDown;
                 xamlMember.Setter = set_13_HW3ProgressTrackerControl_CountingDown;
                 break;
+            case "SongProofWP8.UserControls.NumberButtonControl.NotesUsed":
+                userType = (global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlUserType)GetXamlTypeByName("SongProofWP8.UserControls.NumberButtonControl");
+                xamlMember = new global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlMember(this, "NotesUsed", "String[]");
+                xamlMember.Getter = get_14_NumberButtonControl_NotesUsed;
+                xamlMember.SetIsReadOnly();
+                break;
             case "SongProofWP8.UserControls.PianoKeyControl.NotesUsed":
                 userType = (global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlUserType)GetXamlTypeByName("SongProofWP8.UserControls.PianoKeyControl");
                 xamlMember = new global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlMember(this, "NotesUsed", "String[]");
-                xamlMember.Getter = get_14_PianoKeyControl_NotesUsed;
+                xamlMember.Getter = get_15_PianoKeyControl_NotesUsed;
                 xamlMember.SetIsReadOnly();
                 break;
             case "SongProofWP8.UserControls.ProgressTrackerControl.MinValue":
                 userType = (global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlUserType)GetXamlTypeByName("SongProofWP8.UserControls.ProgressTrackerControl");
                 xamlMember = new global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlMember(this, "MinValue", "Int32");
-                xamlMember.Getter = get_15_ProgressTrackerControl_MinValue;
-                xamlMember.Setter = set_15_ProgressTrackerControl_MinValue;
+                xamlMember.Getter = get_16_ProgressTrackerControl_MinValue;
+                xamlMember.Setter = set_16_ProgressTrackerControl_MinValue;
                 break;
             case "SongProofWP8.UserControls.ProgressTrackerControl.MaxValue":
                 userType = (global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlUserType)GetXamlTypeByName("SongProofWP8.UserControls.ProgressTrackerControl");
                 xamlMember = new global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlMember(this, "MaxValue", "Int32");
-                xamlMember.Getter = get_16_ProgressTrackerControl_MaxValue;
-                xamlMember.Setter = set_16_ProgressTrackerControl_MaxValue;
+                xamlMember.Getter = get_17_ProgressTrackerControl_MaxValue;
+                xamlMember.Setter = set_17_ProgressTrackerControl_MaxValue;
                 break;
             case "SongProofWP8.UserControls.ProgressTrackerControl.TestingLabel":
                 userType = (global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlUserType)GetXamlTypeByName("SongProofWP8.UserControls.ProgressTrackerControl");
                 xamlMember = new global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlMember(this, "TestingLabel", "String");
-                xamlMember.Getter = get_17_ProgressTrackerControl_TestingLabel;
-                xamlMember.Setter = set_17_ProgressTrackerControl_TestingLabel;
+                xamlMember.Getter = get_18_ProgressTrackerControl_TestingLabel;
+                xamlMember.Setter = set_18_ProgressTrackerControl_TestingLabel;
                 break;
             case "SongProofWP8.UserControls.ProgressTrackerControl.TestingValue":
                 userType = (global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlUserType)GetXamlTypeByName("SongProofWP8.UserControls.ProgressTrackerControl");
                 xamlMember = new global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlMember(this, "TestingValue", "String");
-                xamlMember.Getter = get_18_ProgressTrackerControl_TestingValue;
-                xamlMember.Setter = set_18_ProgressTrackerControl_TestingValue;
+                xamlMember.Getter = get_19_ProgressTrackerControl_TestingValue;
+                xamlMember.Setter = set_19_ProgressTrackerControl_TestingValue;
                 break;
             case "SongProofWP8.UserControls.ProgressTrackerControl.PBValue":
                 userType = (global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlUserType)GetXamlTypeByName("SongProofWP8.UserControls.ProgressTrackerControl");
                 xamlMember = new global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlMember(this, "PBValue", "Double");
-                xamlMember.Getter = get_19_ProgressTrackerControl_PBValue;
-                xamlMember.Setter = set_19_ProgressTrackerControl_PBValue;
+                xamlMember.Getter = get_20_ProgressTrackerControl_PBValue;
+                xamlMember.Setter = set_20_ProgressTrackerControl_PBValue;
                 break;
             case "SongProofWP8.UserControls.ProgressTrackerControl.RemainingTime":
                 userType = (global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlUserType)GetXamlTypeByName("SongProofWP8.UserControls.ProgressTrackerControl");
                 xamlMember = new global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlMember(this, "RemainingTime", "Int32");
-                xamlMember.Getter = get_20_ProgressTrackerControl_RemainingTime;
+                xamlMember.Getter = get_21_ProgressTrackerControl_RemainingTime;
                 xamlMember.SetIsReadOnly();
                 break;
             case "SongProofWP8.UserControls.ProgressTrackerControl.CountingDown":
                 userType = (global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlUserType)GetXamlTypeByName("SongProofWP8.UserControls.ProgressTrackerControl");
                 xamlMember = new global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlMember(this, "CountingDown", "Boolean");
-                xamlMember.Getter = get_21_ProgressTrackerControl_CountingDown;
-                xamlMember.Setter = set_21_ProgressTrackerControl_CountingDown;
+                xamlMember.Getter = get_22_ProgressTrackerControl_CountingDown;
+                xamlMember.Setter = set_22_ProgressTrackerControl_CountingDown;
                 break;
             case "SongProofWP8.UserControls.ProgressTrackerControl.TrackingTime":
                 userType = (global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlUserType)GetXamlTypeByName("SongProofWP8.UserControls.ProgressTrackerControl");
                 xamlMember = new global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlMember(this, "TrackingTime", "Boolean");
-                xamlMember.Getter = get_22_ProgressTrackerControl_TrackingTime;
-                xamlMember.Setter = set_22_ProgressTrackerControl_TrackingTime;
+                xamlMember.Getter = get_23_ProgressTrackerControl_TrackingTime;
+                xamlMember.Setter = set_23_ProgressTrackerControl_TrackingTime;
                 break;
             case "SongProofWP8.Pages.PlacingTheNoteSetupPage.NavigationHelper":
                 userType = (global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlUserType)GetXamlTypeByName("SongProofWP8.Pages.PlacingTheNoteSetupPage");
                 xamlMember = new global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlMember(this, "NavigationHelper", "SongProofWP8.Common.NavigationHelper");
-                xamlMember.Getter = get_23_PlacingTheNoteSetupPage_NavigationHelper;
+                xamlMember.Getter = get_24_PlacingTheNoteSetupPage_NavigationHelper;
                 xamlMember.SetIsReadOnly();
                 break;
             case "SongProofWP8.Pages.PlacingTheNoteSetupPage.DefaultViewModel":
                 userType = (global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlUserType)GetXamlTypeByName("SongProofWP8.Pages.PlacingTheNoteSetupPage");
                 xamlMember = new global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlMember(this, "DefaultViewModel", "SongProofWP8.Common.ObservableDictionary");
-                xamlMember.Getter = get_24_PlacingTheNoteSetupPage_DefaultViewModel;
+                xamlMember.Getter = get_25_PlacingTheNoteSetupPage_DefaultViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             case "SongProofWP8.Pages.ViewScale.NavigationHelper":
                 userType = (global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlUserType)GetXamlTypeByName("SongProofWP8.Pages.ViewScale");
                 xamlMember = new global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlMember(this, "NavigationHelper", "SongProofWP8.Common.NavigationHelper");
-                xamlMember.Getter = get_25_ViewScale_NavigationHelper;
+                xamlMember.Getter = get_26_ViewScale_NavigationHelper;
                 xamlMember.SetIsReadOnly();
                 break;
             case "SongProofWP8.Pages.ViewScale.DefaultViewModel":
                 userType = (global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlUserType)GetXamlTypeByName("SongProofWP8.Pages.ViewScale");
                 xamlMember = new global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlMember(this, "DefaultViewModel", "SongProofWP8.Common.ObservableDictionary");
-                xamlMember.Getter = get_26_ViewScale_DefaultViewModel;
+                xamlMember.Getter = get_27_ViewScale_DefaultViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             case "SongProofWP8.UserControls.SessionSetupControl.NoteAmount":
                 userType = (global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlUserType)GetXamlTypeByName("SongProofWP8.UserControls.SessionSetupControl");
                 xamlMember = new global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlMember(this, "NoteAmount", "Int32");
-                xamlMember.Getter = get_27_SessionSetupControl_NoteAmount;
-                xamlMember.Setter = set_27_SessionSetupControl_NoteAmount;
+                xamlMember.Getter = get_28_SessionSetupControl_NoteAmount;
+                xamlMember.Setter = set_28_SessionSetupControl_NoteAmount;
                 break;
             case "SongProofWP8.UserControls.SessionSetupControl.SelectedScaleGroup":
                 userType = (global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlUserType)GetXamlTypeByName("SongProofWP8.UserControls.SessionSetupControl");
                 xamlMember = new global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlMember(this, "SelectedScaleGroup", "String");
-                xamlMember.Getter = get_28_SessionSetupControl_SelectedScaleGroup;
-                xamlMember.Setter = set_28_SessionSetupControl_SelectedScaleGroup;
+                xamlMember.Getter = get_29_SessionSetupControl_SelectedScaleGroup;
+                xamlMember.Setter = set_29_SessionSetupControl_SelectedScaleGroup;
                 break;
             case "SongProofWP8.UserControls.SessionSetupControl.SelectedScale":
                 userType = (global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlUserType)GetXamlTypeByName("SongProofWP8.UserControls.SessionSetupControl");
                 xamlMember = new global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlMember(this, "SelectedScale", "Object");
-                xamlMember.Getter = get_29_SessionSetupControl_SelectedScale;
-                xamlMember.Setter = set_29_SessionSetupControl_SelectedScale;
+                xamlMember.Getter = get_30_SessionSetupControl_SelectedScale;
+                xamlMember.Setter = set_30_SessionSetupControl_SelectedScale;
                 break;
             case "SongProofWP8.UserControls.SessionSetupControl.SelectedKey":
                 userType = (global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlUserType)GetXamlTypeByName("SongProofWP8.UserControls.SessionSetupControl");
                 xamlMember = new global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlMember(this, "SelectedKey", "String");
-                xamlMember.Getter = get_30_SessionSetupControl_SelectedKey;
-                xamlMember.Setter = set_30_SessionSetupControl_SelectedKey;
+                xamlMember.Getter = get_31_SessionSetupControl_SelectedKey;
+                xamlMember.Setter = set_31_SessionSetupControl_SelectedKey;
                 break;
             case "SongProofWP8.UserControls.SessionSetupControl.SelectedDifficulty":
                 userType = (global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlUserType)GetXamlTypeByName("SongProofWP8.UserControls.SessionSetupControl");
                 xamlMember = new global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlMember(this, "SelectedDifficulty", "SongProofWP8.ScaleResources.Difficulties");
-                xamlMember.Getter = get_31_SessionSetupControl_SelectedDifficulty;
-                xamlMember.Setter = set_31_SessionSetupControl_SelectedDifficulty;
+                xamlMember.Getter = get_32_SessionSetupControl_SelectedDifficulty;
+                xamlMember.Setter = set_32_SessionSetupControl_SelectedDifficulty;
                 break;
             case "SongProofWP8.UserControls.SessionSetupControl.ShowSharp":
                 userType = (global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlUserType)GetXamlTypeByName("SongProofWP8.UserControls.SessionSetupControl");
                 xamlMember = new global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlMember(this, "ShowSharp", "Boolean");
-                xamlMember.Getter = get_32_SessionSetupControl_ShowSharp;
-                xamlMember.Setter = set_32_SessionSetupControl_ShowSharp;
+                xamlMember.Getter = get_33_SessionSetupControl_ShowSharp;
+                xamlMember.Setter = set_33_SessionSetupControl_ShowSharp;
                 break;
             case "SongProofWP8.UserControls.TitleBarControl.TextValue":
                 userType = (global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlUserType)GetXamlTypeByName("SongProofWP8.UserControls.TitleBarControl");
                 xamlMember = new global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlMember(this, "TextValue", "String");
-                xamlMember.Getter = get_33_TitleBarControl_TextValue;
-                xamlMember.Setter = set_33_TitleBarControl_TextValue;
+                xamlMember.Getter = get_34_TitleBarControl_TextValue;
+                xamlMember.Setter = set_34_TitleBarControl_TextValue;
                 break;
             case "SongProofWP8.UserControls.TitleBarControl.FontSizeValue":
                 userType = (global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlUserType)GetXamlTypeByName("SongProofWP8.UserControls.TitleBarControl");
                 xamlMember = new global::SongProofWP8.SongProofWP8_XamlTypeInfo.XamlMember(this, "FontSizeValue", "Double");
-                xamlMember.Getter = get_34_TitleBarControl_FontSizeValue;
-                xamlMember.Setter = set_34_TitleBarControl_FontSizeValue;
+                xamlMember.Getter = get_35_TitleBarControl_FontSizeValue;
+                xamlMember.Setter = set_35_TitleBarControl_FontSizeValue;
                 break;
             }
             return xamlMember;

@@ -157,6 +157,9 @@
     <AppxPackagedFile Include="C:\GitHub\Song_Proof\SongProofWP8\SongProofWP8\bin\Debug\UserControls\ListResultsControl.xbf">
       <PackagePath>UserControls\ListResultsControl.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\GitHub\Song_Proof\SongProofWP8\SongProofWP8\bin\Debug\UserControls\NumberButtonControl.xbf">
+      <PackagePath>UserControls\NumberButtonControl.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\GitHub\Song_Proof\SongProofWP8\SongProofWP8\bin\Debug\UserControls\PianoKeyControl.xbf">
       <PackagePath>UserControls\PianoKeyControl.xbf</PackagePath>
     </AppxPackagedFile>

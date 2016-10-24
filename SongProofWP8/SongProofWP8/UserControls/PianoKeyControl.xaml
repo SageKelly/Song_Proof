@@ -29,7 +29,7 @@
         </Storyboard>
         <Style x:Key="NoteBaseStyle" x:Name="NoteBaseStyle" TargetType="Button">
             <Setter Property="MinWidth" Value="32"/>
-            <Setter Property="MinHeight" Value="229"/>
+            <Setter Property="MinHeight" Value="230"/>
             <Setter Property="FontSize" Value="48"/>
             <Setter Property="HorizontalAlignment" Value="Left"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
@@ -40,12 +40,14 @@
             <Setter Property="BorderBrush" Value="{x:Null}"/>
         </Style>
         <Style x:Key="NoteSharpStyle" x:Name="NoteSharpStyle" TargetType="Button" BasedOn="{StaticResource NoteBaseStyle}">
-            <Setter Property="MinWidth" Value="22"/>
+            <Setter Property="MinWidth" Value="18"/>
+            <Setter Property="MinHeight" Value="143"/>
         </Style>
     </UserControl.Resources>
-    <!--<Grid Background="Black">-->
-        <Grid Background="Red">
+    <Grid x:Name="NoteGrid" Background="Black">
+    <!--<Grid Background="Red">-->
         <Grid.RowDefinitions>
+            <RowDefinition Height="110"/>
             <RowDefinition Height="110"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
@@ -67,104 +69,106 @@
             <ToggleButton x:Name="B_Cheat" Content="Cheat?" VerticalAlignment="Center" HorizontalAlignment="Center" Click="ToggleScaleView"/>
         </StackPanel>
 
-        <Grid x:Name="NoteGrid" Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Center">
+        <Grid Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Center">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
-
-            <!-- Row 0-->
-            <Grid Grid.Row="0" Height="143" VerticalAlignment="Top">
+            
+            <Grid x:Name="WhiteKeyGrid" Grid.Row="0">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="22"/>
-                    <ColumnDefinition Width="18"/>
-                    <ColumnDefinition Width="24"/>
-                    <ColumnDefinition Width="18"/>
-                    <ColumnDefinition Width="18"/>
-                    <ColumnDefinition Width="26"/>
-                    <ColumnDefinition Width="18"/>
-                    <ColumnDefinition Width="22"/>
-                    <ColumnDefinition Width="18"/>
-                    <ColumnDefinition Width="19"/>
-                    <ColumnDefinition Width="18"/>
-                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="32"/>
+                    <ColumnDefinition Width="32"/>
+                    <ColumnDefinition Width="32"/>
+                    <ColumnDefinition Width="32"/>
+                    <ColumnDefinition Width="32"/>
+                    <ColumnDefinition Width="32"/>
+                    <ColumnDefinition Width="32"/>
                 </Grid.ColumnDefinitions>
-                <Button Grid.Row="0" Grid.Column="1" Style="{StaticResource NoteSharpStyle}" Content="{Binding NotesUsed[1], Mode=OneWay,
-                    FallbackValue = NA}" Click="_noteClick">
-                    <Button.Background>
-                        <ImageBrush Stretch="Uniform" ImageSource="ms-appx:///Assets/Piano Assets/Sharp Key.png"/>
-                    </Button.Background>
-                </Button>
-                <Button Grid.Row="0" Grid.Column="3" Style="{StaticResource NoteSharpStyle}" Content="{Binding NotesUsed[3], Mode=OneWay,
-                    FallbackValue = NA}" Click="_noteClick">
-                    <Button.Background>
-                        <ImageBrush Stretch="Uniform" ImageSource="ms-appx:///Assets/Piano Assets/Sharp Key.png"/>
-                    </Button.Background>
-                </Button>
-                <Button Grid.Row="0" Grid.Column="6" Style="{StaticResource NoteSharpStyle}" Content="{Binding NotesUsed[6], Mode=OneWay,
-                    FallbackValue = NA}" Click="_noteClick">
-                    <Button.Background>
-                        <ImageBrush Stretch="Uniform" ImageSource="ms-appx:///Assets/Piano Assets/Sharp Key.png"/>
-                    </Button.Background>
-                </Button>
-                <Button Grid.Row="0" Grid.Column="8" Style="{StaticResource NoteSharpStyle}" Content="{Binding NotesUsed[8], Mode=OneWay,
-                    FallbackValue = NA}" Click="_noteClick">
-                    <Button.Background>
-                        <ImageBrush Stretch="Uniform" ImageSource="ms-appx:///Assets/Piano Assets/Sharp Key.png"/>
-                    </Button.Background>
-                </Button>
-                <Button Grid.Row="0" Grid.Column="10" Style="{StaticResource NoteSharpStyle}" Content="{Binding NotesUsed[10], Mode=OneWay,
-                    FallbackValue = NA}" Click="_noteClick">
-                    <Button.Background>
-                        <ImageBrush Stretch="Uniform" ImageSource="ms-appx:///Assets/Piano Assets/Sharp Key.png"/>
-                    </Button.Background>
-                </Button>
-            </Grid>
-            <Grid Height="230">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="35"/>
-                    <ColumnDefinition Width="35"/>
-                    <ColumnDefinition Width="35"/>
-                    <ColumnDefinition Width="35"/>
-                    <ColumnDefinition Width="35"/>
-                    <ColumnDefinition Width="35"/>
-                    <ColumnDefinition Width="35"/>
-                </Grid.ColumnDefinitions>
-                <Button Grid.Row="1" Grid.Column="0" Style="{StaticResource NoteBaseStyle}" Content="{Binding NotesUsed[0], Mode=OneWay, FallbackValue = NA}" Click="_noteClick" Foreground="White">
+                <Button Grid.Column="0" Style="{StaticResource NoteBaseStyle}" Click="_noteClick" Foreground="White">
                     <Button.Background>
                         <ImageBrush Stretch="Uniform" ImageSource="ms-appx:///Assets/Piano Assets/C Key.png"/>
                     </Button.Background>
                 </Button>
-                <Button Grid.Row="1" Grid.Column="1" Style="{StaticResource NoteBaseStyle}" Content="{Binding NotesUsed[2], Mode=OneWay, FallbackValue = NA}" Click="_noteClick">
+                <Button Grid.Column="1" Style="{StaticResource NoteBaseStyle}" Click="_noteClick">
                     <Button.Background>
                         <ImageBrush Stretch="Uniform" ImageSource="ms-appx:///Assets/Piano Assets/D Key.png"/>
                     </Button.Background>
                 </Button>
-                <Button Grid.Row="1" Grid.Column="2" Style="{StaticResource NoteBaseStyle}" Content="{Binding NotesUsed[4], Mode=OneWay, FallbackValue = NA}" Click="_noteClick">
+                <Button Grid.Column="2" Style="{StaticResource NoteBaseStyle}" Click="_noteClick">
                     <Button.Background>
                         <ImageBrush Stretch="Uniform" ImageSource="ms-appx:///Assets/Piano Assets/E Key.png"/>
                     </Button.Background>
                 </Button>
-                <Button Grid.Row="1" Grid.Column="3" Style="{StaticResource NoteBaseStyle}" Content="{Binding NotesUsed[5], Mode=OneWay, FallbackValue = NA}" Click="_noteClick">
+                <Button Grid.Column="3" Style="{StaticResource NoteBaseStyle}" Click="_noteClick">
                     <Button.Background>
                         <ImageBrush Stretch="Uniform" ImageSource="ms-appx:///Assets/Piano Assets/F Key.png"/>
                     </Button.Background>
                 </Button>
-                <Button Grid.Row="1" Grid.Column="4" Style="{StaticResource NoteBaseStyle}" Content="{Binding NotesUsed[7], Mode=OneWay, FallbackValue = NA}" Click="_noteClick">
+                <Button Grid.Column="4" Style="{StaticResource NoteBaseStyle}" Click="_noteClick">
                     <Button.Background>
                         <ImageBrush Stretch="Uniform" ImageSource="ms-appx:///Assets/Piano Assets/G Key.png"/>
                     </Button.Background>
                 </Button>
-                <Button Grid.Row="1" Grid.Column="5" Style="{StaticResource NoteBaseStyle}" Content="{Binding NotesUsed[9], Mode=OneWay, FallbackValue = NA}" Click="_noteClick">
+                <Button Grid.Column="5" Style="{StaticResource NoteBaseStyle}" Click="_noteClick">
                     <Button.Background>
                         <ImageBrush Stretch="Uniform" ImageSource="ms-appx:///Assets/Piano Assets/A Key.png"/>
                     </Button.Background>
                 </Button>
-                <Button Grid.Row="1" Grid.Column="6" Style="{StaticResource NoteBaseStyle}" Content="{Binding NotesUsed[11], Mode=OneWay, FallbackValue = NA}" Click="_noteClick">
+                <Button Grid.Column="6" Style="{StaticResource NoteBaseStyle}" Click="_noteClick">
                     <Button.Background>
                         <ImageBrush Stretch="Uniform" ImageSource="ms-appx:///Assets/Piano Assets/B Key.png"/>
                     </Button.Background>
                 </Button>
             </Grid>
+
+            <!-- Row 0-->
+            <Grid x:Name="SharpKeyGrid" Grid.Row="0" VerticalAlignment="Top">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="18"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="18"/>
+                    <ColumnDefinition Width="39"/>
+                    <ColumnDefinition Width="18"/>
+                    <ColumnDefinition Width="18"/>
+                    <ColumnDefinition Width="18"/>
+                    <ColumnDefinition Width="16"/>
+                    <ColumnDefinition Width="18"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Row="1" Grid.Column="1" Style="{StaticResource NoteSharpStyle}" Click="_noteClick">
+                    <Button.Background>
+                        <ImageBrush Stretch="Uniform" ImageSource="ms-appx:///Assets/Piano Assets/Sharp Key.png"/>
+                    </Button.Background>
+                </Button>
+                <Button Grid.Row="1" Grid.Column="3" Style="{StaticResource NoteSharpStyle}" Click="_noteClick">
+                    <Button.Background>
+                        <ImageBrush Stretch="Uniform" ImageSource="ms-appx:///Assets/Piano Assets/Sharp Key.png"/>
+                    </Button.Background>
+                </Button>
+                <Button Grid.Row="1" Grid.Column="5" Style="{StaticResource NoteSharpStyle}" Click="_noteClick">
+                    <Button.Background>
+                        <ImageBrush Stretch="Uniform" ImageSource="ms-appx:///Assets/Piano Assets/Sharp Key.png"/>
+                    </Button.Background>
+                </Button>
+                <Button Grid.Row="1" Grid.Column="7" Style="{StaticResource NoteSharpStyle}" Click="_noteClick">
+                    <Button.Background>
+                        <ImageBrush Stretch="Uniform" ImageSource="ms-appx:///Assets/Piano Assets/Sharp Key.png"/>
+                    </Button.Background>
+                </Button>
+                <Button Grid.Row="1" Grid.Column="9" Style="{StaticResource NoteSharpStyle}" Click="_noteClick">
+                    <Button.Background>
+                        <ImageBrush Stretch="Uniform" ImageSource="ms-appx:///Assets/Piano Assets/Sharp Key.png"/>
+                    </Button.Background>
+                </Button>
+            </Grid>
+            
         </Grid>
+        
     </Grid>
 </UserControl>
