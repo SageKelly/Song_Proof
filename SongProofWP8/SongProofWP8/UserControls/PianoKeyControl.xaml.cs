@@ -56,7 +56,7 @@ namespace SongProofWP8.UserControls
             }
             else
             {
-                Debug.WriteLine("An error occurred between Note Count and Session Piano {0}", Notes.Count);
+                Debug.WriteLine("An error occurred between Note Count and Session Piano: {0}", Notes.Count);
                 throw new Exception("An error occurred between Note Count and Session Piano");
             }
         }
