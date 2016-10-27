@@ -34,7 +34,7 @@ namespace SongProofWP8.UserControls
             DataContext = this;
             _noteClickMethod = targetType.GetTypeInfo().GetDeclaredMethod(pianoKeysMethodName);
             _methodTarget = methodTarget;
-            LBScale.ItemsSource = usedNotes;
+            B_Cheat.Tag = string.Join(", ", usedNotes);
             Notes = new List<Button>();
 
             foreach (UIElement child in WhiteKeyGrid.Children.OfType<Button>())
@@ -64,7 +64,8 @@ namespace SongProofWP8.UserControls
         public void InstallControl(Control control)
         {
             NoteGrid.Children.Add(control);
-            Grid.SetRow(control, 1);
+            Grid.SetRow(control, 2);
+            Grid.SetColumn(control, 0);
         }
 
         private void _noteClick(object sender, RoutedEventArgs e)
@@ -74,16 +75,9 @@ namespace SongProofWP8.UserControls
 
         private void ToggleScaleView(object sender, RoutedEventArgs e)
         {
-            if ((bool)B_Cheat.IsChecked)
-            {
-                B_Cheat.Content = "Be Honest?";
-                FadeIn.Begin();
-            }
-            else
-            {
-                B_Cheat.Content = "Cheat?";
-                FadeOut.Begin();
-            }
+            string temp = (string)B_Cheat.Tag;
+            B_Cheat.Tag = B_Cheat.Content;
+            B_Cheat.Content = temp;
         }
     }
 }

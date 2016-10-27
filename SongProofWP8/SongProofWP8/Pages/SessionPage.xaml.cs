@@ -17,7 +17,6 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
-
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
 
 namespace SongProofWP8.Pages
@@ -147,6 +146,7 @@ namespace SongProofWP8.Pages
             SetTitleText();
             SetupProgressTracker();
             SetupButtons();
+            SetScreenOrientation();
 
 
             sbc = new SessionButtonsControl("B_Start_Click", "B_Quit_Click", "B_ViewResults_Click", this, typeof(SessionPage));

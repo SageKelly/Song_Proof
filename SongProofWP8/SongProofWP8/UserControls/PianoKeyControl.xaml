@@ -6,30 +6,24 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    d:DesignHeight="660"
+    d:DesignHeight="480"
     d:DesignWidth="800">
     <UserControl.Resources>
-        <Storyboard x:Name="FadeIn" >
-            <DoubleAnimation Storyboard.TargetName="LBScale"
-                             Storyboard.TargetProperty="Opacity"
-                             From="0" To="1" Duration="0:0:0.25">
-                <DoubleAnimation.EasingFunction>
-                    <CircleEase EasingMode="EaseIn"/>
-                </DoubleAnimation.EasingFunction>
-            </DoubleAnimation>
-        </Storyboard>
-        <Storyboard x:Name="FadeOut" >
-            <DoubleAnimation Storyboard.TargetName="LBScale"
-                             Storyboard.TargetProperty="Opacity"
-                             From="1" To="0" Duration="0:0:0.25">
-                <DoubleAnimation.EasingFunction>
-                    <CircleEase EasingMode="EaseIn"/>
-                </DoubleAnimation.EasingFunction>
-            </DoubleAnimation>
-        </Storyboard>
+        <x:Double x:Key="BaseWhiteHeight">
+            230
+        </x:Double>
+        <x:Double x:Key="BaseSharpHeight">
+            143
+        </x:Double>
+        <x:Double x:Key="BaseWhiteWidth">
+            32
+        </x:Double>
+        <x:Double x:Key="BaseSharpWidth">
+            18
+        </x:Double>
         <Style x:Key="NoteBaseStyle" x:Name="NoteBaseStyle" TargetType="Button">
-            <Setter Property="MinWidth" Value="32"/>
-            <Setter Property="MinHeight" Value="230"/>
+            <Setter Property="MinWidth" Value="72"/>
+            <Setter Property="MinHeight" Value="440"/>
             <Setter Property="FontSize" Value="48"/>
             <Setter Property="HorizontalAlignment" Value="Left"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
@@ -40,94 +34,83 @@
             <Setter Property="BorderBrush" Value="{x:Null}"/>
         </Style>
         <Style x:Key="NoteSharpStyle" x:Name="NoteSharpStyle" TargetType="Button" BasedOn="{StaticResource NoteBaseStyle}">
-            <Setter Property="MinWidth" Value="18"/>
-            <Setter Property="MinHeight" Value="143"/>
+            <Setter Property="MinWidth" Value="48"/>
+            <Setter Property="MinHeight" Value="276"/>
         </Style>
         <ControlTemplate x:Key="PianoKeyButtonTemplate" TargetType="Button">
-        	<Grid x:Name="Grid" Background="Transparent">
-        		<VisualStateManager.VisualStateGroups>
-        			<VisualStateGroup x:Name="CommonStates">
-        				<VisualStateGroup.Transitions>
-        					<VisualTransition From="Pressed" To="PointerOver">
-        						<Storyboard>
-        							<PointerUpThemeAnimation Storyboard.TargetName="Grid" />
-        						</Storyboard>
-        					</VisualTransition>
-        					<VisualTransition From="PointerOver" To="Normal">
-        						<Storyboard>
-        							<PointerUpThemeAnimation Storyboard.TargetName="Grid" />
-        						</Storyboard>
-        					</VisualTransition>
-        					<VisualTransition From="Pressed" To="Normal">
-        						<Storyboard>
-        							<PointerUpThemeAnimation Storyboard.TargetName="Grid" />
-        						</Storyboard>
-        					</VisualTransition>
-        				</VisualStateGroup.Transitions>
-        				<VisualState x:Name="Normal" />
-        				<VisualState x:Name="PointerOver" />
-        				<VisualState x:Name="Pressed">
-        					<Storyboard>
-        						<PointerDownThemeAnimation Storyboard.TargetName="Grid" />
-        					</Storyboard>
-        				</VisualState>
-        				<VisualState x:Name="Disabled">
-        					<Storyboard>
-        						<ObjectAnimationUsingKeyFrames Storyboard.TargetName="Border" Storyboard.TargetProperty="BorderBrush">
-        							<DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ButtonDisabledBorderThemeBrush}" />
-        						</ObjectAnimationUsingKeyFrames>
-        						<ObjectAnimationUsingKeyFrames Storyboard.TargetName="Border" Storyboard.TargetProperty="Background">
-        							<DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ButtonDisabledBackgroundThemeBrush}" />
-        						</ObjectAnimationUsingKeyFrames>
-        					</Storyboard>
-        				</VisualState>
-        			</VisualStateGroup>
-        		</VisualStateManager.VisualStateGroups>
-        		<Border x:Name="Border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
+            <Grid x:Name="Grid" Background="Transparent">
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualStateGroup.Transitions>
+                            <VisualTransition From="Pressed" To="PointerOver">
+                                <Storyboard>
+                                    <PointerUpThemeAnimation Storyboard.TargetName="Grid" />
+                                </Storyboard>
+                            </VisualTransition>
+                            <VisualTransition From="PointerOver" To="Normal">
+                                <Storyboard>
+                                    <PointerUpThemeAnimation Storyboard.TargetName="Grid" />
+                                </Storyboard>
+                            </VisualTransition>
+                            <VisualTransition From="Pressed" To="Normal">
+                                <Storyboard>
+                                    <PointerUpThemeAnimation Storyboard.TargetName="Grid" />
+                                </Storyboard>
+                            </VisualTransition>
+                        </VisualStateGroup.Transitions>
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="PointerOver" />
+                        <VisualState x:Name="Pressed">
+                            <Storyboard>
+                                <PointerDownThemeAnimation Storyboard.TargetName="Grid" />
+                            </Storyboard>
+                        </VisualState>
+                        <VisualState x:Name="Disabled">
+                            <Storyboard>
+                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Border" Storyboard.TargetProperty="BorderBrush">
+                                    <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ButtonDisabledBorderThemeBrush}" />
+                                </ObjectAnimationUsingKeyFrames>
+                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Border" Storyboard.TargetProperty="Background">
+                                    <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ButtonDisabledBackgroundThemeBrush}" />
+                                </ObjectAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+                <Border x:Name="Border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
         			Background="{TemplateBinding Background}" Margin="{ThemeResource PhoneTouchTargetOverhang}"/>
-        	</Grid>
+            </Grid>
         </ControlTemplate>
     </UserControl.Resources>
-    <Grid x:Name="NoteGrid" Background="Black">
-    <!--<Grid Background="Red">-->
+    <Grid x:Name="NoteGrid" Background="Black" HorizontalAlignment="Center">
+        <!--<Grid Background="Red">-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="0"/>
             <RowDefinition Height="110"/>
-            <RowDefinition Height="110"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="440"/>
         </Grid.RowDefinitions>
         <!--Reveal Scale (for redemption)-->
-        <StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Bottom">
-            <ItemsControl x:Name="LBScale" Opacity="0" ItemsSource="{Binding}" VerticalAlignment="Center">
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapGrid  HorizontalAlignment="Center" Orientation="Horizontal"/>
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Padding="9,0" FontSize="26" Text="{Binding}" HorizontalAlignment="Center" VerticalAlignment="Center"
-                                   TextAlignment="Center" FontFamily="Global User Interface"/>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-            <ToggleButton x:Name="B_Cheat" Content="Cheat?" VerticalAlignment="Center" HorizontalAlignment="Center" Click="ToggleScaleView"/>
-        </StackPanel>
+        <ToggleButton x:Name="B_Cheat" Grid.Row="1" Grid.Column="0" Content="Cheat?" VerticalAlignment="Center" HorizontalAlignment="Center" Click="ToggleScaleView"/>
 
-        <Grid Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Center">
+        <Grid Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
-            
+
             <Grid x:Name="WhiteKeyGrid" Grid.Row="0">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="32"/>
-                    <ColumnDefinition Width="32"/>
-                    <ColumnDefinition Width="32"/>
-                    <ColumnDefinition Width="32"/>
-                    <ColumnDefinition Width="32"/>
-                    <ColumnDefinition Width="32"/>
-                    <ColumnDefinition Width="32"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 <Button Grid.Column="0" Style="{StaticResource NoteBaseStyle}" Click="_noteClick" Template="{StaticResource PianoKeyButtonTemplate}">
                     <Button.Background>
@@ -140,9 +123,9 @@
                     </Button.Background>
                 </Button>
                 <Button Grid.Column="2" Style="{StaticResource NoteBaseStyle}" Click="_noteClick" Template="{StaticResource PianoKeyButtonTemplate}">
-                	<Button.Background>
-                		<ImageBrush Stretch="Uniform" ImageSource="ms-appx:///Assets/Piano Assets/E Key.png"/>
-                	</Button.Background>
+                    <Button.Background>
+                        <ImageBrush Stretch="Uniform" ImageSource="ms-appx:///Assets/Piano Assets/E Key.png"/>
+                    </Button.Background>
                 </Button>
                 <Button Grid.Column="3" Style="{StaticResource NoteBaseStyle}" Click="_noteClick" Template="{StaticResource PianoKeyButtonTemplate}">
                     <Button.Background>
@@ -169,20 +152,20 @@
             <!-- Row 0-->
             <Grid x:Name="SharpKeyGrid" Grid.Row="0" VerticalAlignment="Top">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="0"/>
                     <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="20"/>
-                    <ColumnDefinition Width="18"/>
-                    <ColumnDefinition Width="20"/>
-                    <ColumnDefinition Width="18"/>
-                    <ColumnDefinition Width="39"/>
-                    <ColumnDefinition Width="18"/>
-                    <ColumnDefinition Width="18"/>
-                    <ColumnDefinition Width="18"/>
-                    <ColumnDefinition Width="16"/>
-                    <ColumnDefinition Width="18"/>
+                    <ColumnDefinition Width="41"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="37"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="79"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="36"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="29"/>
+                    <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
                 <Button Grid.Row="1" Grid.Column="1" Style="{StaticResource NoteSharpStyle}" Click="_noteClick" Template="{StaticResource PianoKeyButtonTemplate}">
@@ -211,8 +194,8 @@
                     </Button.Background>
                 </Button>
             </Grid>
-            
+
         </Grid>
-        
+
     </Grid>
 </UserControl>
