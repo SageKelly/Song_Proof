@@ -100,5 +100,17 @@ namespace SongProofWP8
                     break;
             }
         }
+
+        public static string GetInnerException(Exception e)
+        {
+            if (e.InnerException == null)
+            {
+                return e.Message;
+            }
+            else
+            {
+                return GetInnerException(e.InnerException);
+            }
+        }
     }
 }

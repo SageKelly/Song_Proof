@@ -192,6 +192,9 @@
     <Content Include="Assets\Logo Assets\WideLogo.scale-140.png" />
     <Content Include="Assets\Logo Assets\WideLogo.scale-240.png" />
     <Content Include="Assets\Piano Assets\Sharp Key.png" />
+    <Content Include="Assets\SplashScreen.scale-100.png" />
+    <Content Include="Assets\SplashScreen.scale-140.png" />
+    <Content Include="Assets\SplashScreen.scale-240.png" />
     <Content Include="README_FIRST.txt" />
     <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Check.png" />

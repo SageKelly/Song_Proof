@@ -1,4 +1,4 @@
-﻿<Page
+﻿<Page x:Name="page"
     x:Class="SongProofWP8.Pages.SessionPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -14,12 +14,25 @@
     </Page.RenderTransform>
 
     <Grid x:Name="LayoutRoot">
+    	<VisualStateManager.VisualStateGroups>
+    		<VisualStateGroup x:Name="OrientationStates">
+    			<VisualState x:Name="Landscape">
+    				<Storyboard>
+    					<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" Storyboard.TargetName="page">
+    						<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+    						<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="90"/>
+    					</DoubleAnimationUsingKeyFrames>
+    				</Storyboard>
+    			</VisualState>
+    		</VisualStateGroup>
+    	</VisualStateManager.VisualStateGroups>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="35"/><!-- Title Bar-->
+            <RowDefinition Height="Auto"/><!-- Piano Keys-->
             <RowDefinition Height="1*"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
+        <TextBlock Grid.Row="2" x:Name="Test" Text="Test" FontSize="77"></TextBlock>
     </Grid>
 </Page>

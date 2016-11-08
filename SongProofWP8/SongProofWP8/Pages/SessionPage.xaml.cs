@@ -2,11 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Graphics.Display;
 using Windows.Phone.UI.Input;
 using Windows.UI;
 using Windows.UI.Xaml;
@@ -142,11 +144,20 @@ namespace SongProofWP8.Pages
             curIndex = -1;
 
             incrementor = 0;
+            try
+            {
 
-            SetTitleText();
-            SetupProgressTracker();
-            SetupButtons();
-            SetScreenOrientation();
+                SetTitleText();
+                SetupProgressTracker();
+                SetupButtons();
+                SetScreenOrientation();
+            }
+            catch (Exception ex)
+            {
+                string exception = DataHolder.GetInnerException(ex);
+                Debug.WriteLine(exception);
+                throw ex;
+            }
 
 
             sbc = new SessionButtonsControl("B_Start_Click", "B_Quit_Click", "B_ViewResults_Click", this, typeof(SessionPage));
@@ -241,11 +252,7 @@ namespace SongProofWP8.Pages
                 case DataHolder.ProofingTypes.BuildTheScale:
                     break;
                 case DataHolder.ProofingTypes.PlacingTheNote:
-                    PageRotation.SetValue(CompositeTransform.RotationProperty, 90);
-
-                    object pageWidth = (double)GetValue(WidthProperty);
-                    SetValue(WidthProperty, this.GetValue(HeightProperty));
-                    SetValue(HeightProperty, pageWidth);
+                    DisplayInformation.AutoRotationPreferences = DisplayOrientations.Landscape;
                     break;
                 case DataHolder.ProofingTypes.FindTheVoice:
                     break;
