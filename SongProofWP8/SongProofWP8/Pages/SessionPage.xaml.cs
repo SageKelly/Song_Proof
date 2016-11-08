@@ -115,7 +115,6 @@ namespace SongProofWP8.Pages
         public SessionPage()
         {
             this.InitializeComponent();
-
             XBrush = new SolidColorBrush(new Color()
             {
                 //#FFB60000
@@ -144,20 +143,10 @@ namespace SongProofWP8.Pages
             curIndex = -1;
 
             incrementor = 0;
-            try
-            {
 
-                SetTitleText();
-                SetupProgressTracker();
-                SetupButtons();
-                SetScreenOrientation();
-            }
-            catch (Exception ex)
-            {
-                string exception = DataHolder.GetInnerException(ex);
-                Debug.WriteLine(exception);
-                throw ex;
-            }
+            SetTitleText();
+            SetupProgressTracker();
+            SetupButtons();
 
 
             sbc = new SessionButtonsControl("B_Start_Click", "B_Quit_Click", "B_ViewResults_Click", this, typeof(SessionPage));
@@ -248,23 +237,31 @@ namespace SongProofWP8.Pages
             switch (DataHolder.ProofType)
             {
                 case DataHolder.ProofingTypes.Dummy:
+                    DisplayInformation.AutoRotationPreferences = DisplayOrientations.Portrait;
                     break;
                 case DataHolder.ProofingTypes.BuildTheScale:
+                    DisplayInformation.AutoRotationPreferences = DisplayOrientations.Portrait;
                     break;
                 case DataHolder.ProofingTypes.PlacingTheNote:
                     DisplayInformation.AutoRotationPreferences = DisplayOrientations.Landscape;
                     break;
                 case DataHolder.ProofingTypes.FindTheVoice:
+                    DisplayInformation.AutoRotationPreferences = DisplayOrientations.Portrait;
                     break;
                 case DataHolder.ProofingTypes.BuildTheChord:
+                    DisplayInformation.AutoRotationPreferences = DisplayOrientations.Portrait;
                     break;
                 case DataHolder.ProofingTypes.HW3:
+                    DisplayInformation.AutoRotationPreferences = DisplayOrientations.Portrait;
                     break;
                 case DataHolder.ProofingTypes.GrabBag:
+                    DisplayInformation.AutoRotationPreferences = DisplayOrientations.Portrait;
                     break;
                 case DataHolder.ProofingTypes.ScaleWriting:
+                    DisplayInformation.AutoRotationPreferences = DisplayOrientations.Portrait;
                     break;
                 default:
+                    DisplayInformation.AutoRotationPreferences = DisplayOrientations.Portrait;
                     break;
             }
         }
@@ -443,6 +440,7 @@ namespace SongProofWP8.Pages
         /// This parameter is typically used to configure the page.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            SetScreenOrientation();
         }
 
         /// <summary>
