@@ -109,6 +109,7 @@ namespace SongProofWP8.Pages
         /// handlers that cannot cancel the navigation request.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            DisplayInformation.AutoRotationPreferences = DisplayOrientations.Portrait;
             this.navigationHelper.OnNavigatedTo(e);
         }
 

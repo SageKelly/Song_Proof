@@ -10,12 +10,12 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="18.435284"
+   width="17.482159"
    height="142.99973"
    id="svg4296"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="New document 6">
+   sodipodi:docname="Default Sharp Key.svg">
   <defs
      id="defs4298">
     <linearGradient
@@ -376,21 +376,21 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.35"
-     inkscape:cx="-121.49664"
-     inkscape:cy="397.21415"
+     inkscape:zoom="11.313709"
+     inkscape:cx="25.419284"
+     inkscape:cy="16.747327"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="g3092"
      showgrid="false"
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:window-width="463"
-     inkscape:window-height="401"
-     inkscape:window-x="156"
-     inkscape:window-y="156"
-     inkscape:window-maximized="0" />
+     inkscape:window-width="1280"
+     inkscape:window-height="971"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
   <metadata
      id="metadata4301">
     <rdf:RDF>
@@ -399,7 +399,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -407,7 +407,7 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-496.49664,-786.57661)">
+     transform="translate(-496.98102,-786.57661)">
     <g
        transform="translate(304.44139,768.67377)"
        style="display:inline"
@@ -432,9 +432,9 @@
          sodipodi:nodetypes="cccccc" />
       <rect
          y="160.01868"
-         x="192.05525"
+         x="192.53963"
          height="0.88388348"
-         width="18.435284"
+         width="17.482159"
          id="rect3892"
          style="fill:#1e1e1e;fill-opacity:1;stroke:none" />
       <path

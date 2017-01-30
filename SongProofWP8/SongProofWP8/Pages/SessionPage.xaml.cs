@@ -109,13 +109,13 @@ namespace SongProofWP8.Pages
         ProgressTrackerControl ptc;
         SessionButtonsControl sbc;
         HW3ProgressTrackerControl hptc;
+        PianoKeyControl pkc;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         public SessionPage()
         {
             this.InitializeComponent();
-
             XBrush = new SolidColorBrush(new Color()
             {
                 //#FFB60000
@@ -144,20 +144,10 @@ namespace SongProofWP8.Pages
             curIndex = -1;
 
             incrementor = 0;
-            try
-            {
 
-                SetTitleText();
-                SetupProgressTracker();
-                SetupButtons();
-                SetScreenOrientation();
-            }
-            catch (Exception ex)
-            {
-                string exception = DataHolder.GetInnerException(ex);
-                Debug.WriteLine(exception);
-                throw ex;
-            }
+            SetTitleText();
+            SetupProgressTracker();
+            SetupButtons();
 
 
             sbc = new SessionButtonsControl("B_Start_Click", "B_Quit_Click", "B_ViewResults_Click", this, typeof(SessionPage));
@@ -217,7 +207,7 @@ namespace SongProofWP8.Pages
             switch (DataHolder.ProofType)
             {
                 case DataHolder.ProofingTypes.PlacingTheNote:
-                    PianoKeyControl pkc = new PianoKeyControl(curSession.Piano, curSession.ScaleUsed.Notes, "NoteClick", this, typeof(SessionPage));
+                    pkc = new PianoKeyControl(curSession.Piano, curSession.ScaleUsed.Notes, "NoteClick", this, typeof(SessionPage));
                     LayoutRoot.Children.Add(pkc);
                     Grid.SetRow(pkc, 2);
                     pkc.InstallControl(ptc);
@@ -248,23 +238,31 @@ namespace SongProofWP8.Pages
             switch (DataHolder.ProofType)
             {
                 case DataHolder.ProofingTypes.Dummy:
+                    DisplayInformation.AutoRotationPreferences = DisplayOrientations.Portrait;
                     break;
                 case DataHolder.ProofingTypes.BuildTheScale:
+                    DisplayInformation.AutoRotationPreferences = DisplayOrientations.Portrait;
                     break;
                 case DataHolder.ProofingTypes.PlacingTheNote:
                     DisplayInformation.AutoRotationPreferences = DisplayOrientations.Landscape;
                     break;
                 case DataHolder.ProofingTypes.FindTheVoice:
+                    DisplayInformation.AutoRotationPreferences = DisplayOrientations.Portrait;
                     break;
                 case DataHolder.ProofingTypes.BuildTheChord:
+                    DisplayInformation.AutoRotationPreferences = DisplayOrientations.Portrait;
                     break;
                 case DataHolder.ProofingTypes.HW3:
+                    DisplayInformation.AutoRotationPreferences = DisplayOrientations.Portrait;
                     break;
                 case DataHolder.ProofingTypes.GrabBag:
+                    DisplayInformation.AutoRotationPreferences = DisplayOrientations.Portrait;
                     break;
                 case DataHolder.ProofingTypes.ScaleWriting:
+                    DisplayInformation.AutoRotationPreferences = DisplayOrientations.Portrait;
                     break;
                 default:
+                    DisplayInformation.AutoRotationPreferences = DisplayOrientations.Portrait;
                     break;
             }
         }
@@ -274,14 +272,29 @@ namespace SongProofWP8.Pages
 
         private void StyleButton(Button b, bool correct)
         {
-            if (lastStyledButton != null)
+            switch (DataHolder.ProofType)
             {
-                lastStyledButton.Background = DefaultBrush;
+                case DataHolder.ProofingTypes.PlacingTheNote:
+                    if (lastStyledButton != null)
+                    {
+                        pkc.StyleButton(lastStyledButton, true);
+                    }
+
+                    pkc.StyleButton(b, false, correct);
+
+                    lastStyledButton = b;
+                    break;
+                default:
+                    if (lastStyledButton != null)
+                    {
+                        lastStyledButton.Background = DefaultBrush;
+                    }
+
+                    b.Background = correct ? CheckBrush : XBrush;
+
+                    lastStyledButton = b;
+                    break;
             }
-
-            b.Background = correct ? CheckBrush : XBrush;
-
-            lastStyledButton = b;
         }
 
         #region Placing The Note
@@ -311,8 +324,7 @@ namespace SongProofWP8.Pages
                 if (b != null && !ptc.CountingDown)
                 {
                     //give the note the button's value
-                    string note = b.Content.ToString();
-                    ;
+                    string note = b.Tag.ToString();
                     int noteIndex = curSession.ProofingData[curIndex];
                     //use that value to check to see if it was the
                     //right one to press for the current note
@@ -443,6 +455,7 @@ namespace SongProofWP8.Pages
         /// This parameter is typically used to configure the page.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            SetScreenOrientation();
         }
 
         /// <summary>

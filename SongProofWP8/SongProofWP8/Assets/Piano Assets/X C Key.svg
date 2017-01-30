@@ -2,6 +2,7 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
+   xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -15,9 +16,41 @@
    id="svg4153"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="New document 3">
+   sodipodi:docname="X C Key.svg">
   <defs
      id="defs4155">
+    <linearGradient
+       id="linearGradient4031"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#f1d6be;stop-opacity:1;"
+         offset="0"
+         id="stop4033" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient4025"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#d2ada0;stop-opacity:1;"
+         offset="0"
+         id="stop4027" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient4019"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#c43519;stop-opacity:1;"
+         offset="0"
+         id="stop4021" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient4013"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#7b0707;stop-opacity:1;"
+         offset="0"
+         id="stop4015" />
+    </linearGradient>
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient4109"
@@ -30,11 +63,11 @@
     <linearGradient
        id="linearGradient4109">
       <stop
-         style="stop-color:#7d7d7d;stop-opacity:1"
+         style="stop-color:#7b0707;stop-opacity:1;"
          offset="0"
          id="stop4111" />
       <stop
-         style="stop-color:#000000;stop-opacity:0;"
+         style="stop-color:#f1d6be;stop-opacity:1;"
          offset="1"
          id="stop4113" />
     </linearGradient>
@@ -56,9 +89,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.35"
-     inkscape:cx="63.8125"
-     inkscape:cy="200.41907"
+     inkscape:zoom="1.979899"
+     inkscape:cx="-24.755484"
+     inkscape:cy="117.26943"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -66,11 +99,11 @@
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:window-width="463"
-     inkscape:window-height="401"
-     inkscape:window-x="78"
-     inkscape:window-y="78"
-     inkscape:window-maximized="0" />
+     inkscape:window-width="1280"
+     inkscape:window-height="971"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
   <metadata
      id="metadata4158">
     <rdf:RDF>
@@ -93,6 +126,6 @@
        inkscape:connector-curvature="0"
        id="path3801"
        d="m 332.16518,504.12334 0,144.84375 13.03125,0 0,83.0625 c -12.04872,0 -21.38062,0 -33.25,0 l 0,-227.90625 z"
-       style="fill:#ededed;fill-opacity:1;stroke:url(#linearGradient4151);stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:0;stroke-dasharray:none;display:inline" />
+       style="fill:url(#linearGradient4019);fill-opacity:1;stroke:url(#linearGradient4151);stroke-width:1.50000000000000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:0;stroke-dasharray:none;display:inline" />
   </g>
 </svg>
