@@ -12,20 +12,20 @@
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="34.75"
    height="229.40625"
-   id="svg4584"
+   id="svg4153"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="New document 12">
+   sodipodi:docname="C Key.svg">
   <defs
-     id="defs4586">
+     id="defs4155">
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient4109"
-       id="linearGradient3890"
-       x1="277.01938"
-       y1="132.26562"
-       x2="310.26938"
-       y2="132.26562"
+       id="linearGradient4115"
+       x1="168.93304"
+       y1="132.26561"
+       x2="223.72803"
+       y2="132.26561"
        gradientUnits="userSpaceOnUse" />
     <linearGradient
        id="linearGradient4109">
@@ -39,13 +39,13 @@
          id="stop4113" />
     </linearGradient>
     <linearGradient
-       gradientTransform="translate(203.49849,548.66799)"
-       y2="132.26562"
-       x2="310.26938"
-       y1="132.26562"
-       x1="277.01938"
+       gradientTransform="translate(143.01339,485.81086)"
+       y2="132.26561"
+       x2="223.72803"
+       y1="132.26561"
+       x1="168.93304"
        gradientUnits="userSpaceOnUse"
-       id="linearGradient4582"
+       id="linearGradient4151"
        xlink:href="#linearGradient4109"
        inkscape:collect="always" />
   </defs>
@@ -56,23 +56,23 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.35"
-     inkscape:cx="-104.78125"
-     inkscape:cy="263.26282"
+     inkscape:zoom="1.979899"
+     inkscape:cx="-24.755484"
+     inkscape:cy="117.26943"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="463"
-     inkscape:window-height="423"
-     inkscape:window-x="78"
-     inkscape:window-y="78"
-     inkscape:window-maximized="0"
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
-     fit-margin-bottom="0" />
+     fit-margin-bottom="0"
+     inkscape:window-width="1280"
+     inkscape:window-height="971"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
   <metadata
-     id="metadata4589">
+     id="metadata4158">
     <rdf:RDF>
       <cc:Work
          rdf:about="">
@@ -87,12 +87,12 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-479.78125,-566.21875)">
+     transform="translate(-311.1875,-503.375)">
     <path
-       style="fill:#ededed;fill-opacity:1;stroke:url(#linearGradient4582);stroke-width:1.5;stroke-miterlimit:4;stroke-dasharray:none;display:inline"
-       d="m 498.73661,566.98049 0,144.84375 15.03125,0 0,83.0625 c -12.04872,0 -21.38062,0 -33.25,0 l 0,-227.90625 z"
-       id="path3810"
+       sodipodi:nodetypes="ccccccc"
        inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccccccc" />
+       id="path3801"
+       d="m 332.16518,504.12334 0,144.84375 13.03125,0 0,83.0625 c -12.04872,0 -21.38062,0 -33.25,0 l 0,-227.90625 z"
+       style="fill:#ededed;fill-opacity:1;stroke:url(#linearGradient4151);stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:0;stroke-dasharray:none;display:inline" />
   </g>
 </svg>

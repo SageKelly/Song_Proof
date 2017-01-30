@@ -162,16 +162,25 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\Piano Assets\A Key.png" />
-    <Content Include="Assets\Piano Assets\B Key.png" />
     <Content Include="Assets\Logo Assets\BadgeLogo.scale-100.png" />
     <Content Include="Assets\Logo Assets\BadgeLogo.scale-140.png" />
     <Content Include="Assets\Logo Assets\BadgeLogo.scale-240.png" />
-    <Content Include="Assets\Piano Assets\C Key.png" />
-    <Content Include="Assets\Piano Assets\D Key.png" />
-    <Content Include="Assets\Piano Assets\E Key.png" />
-    <Content Include="Assets\Piano Assets\F Key.png" />
-    <Content Include="Assets\Piano Assets\G Key.png" />
+    <Content Include="Assets\Piano Assets\Check A Key.png" />
+    <Content Include="Assets\Piano Assets\Check B Key.png" />
+    <Content Include="Assets\Piano Assets\Check C Key.png" />
+    <Content Include="Assets\Piano Assets\Check D Key.png" />
+    <Content Include="Assets\Piano Assets\Check E Key.png" />
+    <Content Include="Assets\Piano Assets\Check F Key.png" />
+    <Content Include="Assets\Piano Assets\Check G Key.png" />
+    <Content Include="Assets\Piano Assets\Check Sharp Key.png" />
+    <Content Include="Assets\Piano Assets\Default A Key.png" />
+    <Content Include="Assets\Piano Assets\Default B Key.png" />
+    <Content Include="Assets\Piano Assets\Default C Key.png" />
+    <Content Include="Assets\Piano Assets\Default D Key.png" />
+    <Content Include="Assets\Piano Assets\Default E Key.png" />
+    <Content Include="Assets\Piano Assets\Default F Key.png" />
+    <Content Include="Assets\Piano Assets\Default G Key.png" />
+    <Content Include="Assets\Piano Assets\Default Sharp Key.png" />
     <Content Include="Assets\Logo Assets\Logo.scale-100.png" />
     <Content Include="Assets\Logo Assets\Logo.scale-140.png" />
     <Content Include="Assets\Logo Assets\Logo.scale-240.png" />
@@ -191,7 +200,14 @@
     <Content Include="Assets\Logo Assets\WideLogo.scale-100.png" />
     <Content Include="Assets\Logo Assets\WideLogo.scale-140.png" />
     <Content Include="Assets\Logo Assets\WideLogo.scale-240.png" />
-    <Content Include="Assets\Piano Assets\Sharp Key.png" />
+    <Content Include="Assets\Piano Assets\X A Key.png" />
+    <Content Include="Assets\Piano Assets\X B Key.png" />
+    <Content Include="Assets\Piano Assets\X C Key.png" />
+    <Content Include="Assets\Piano Assets\X D Key.png" />
+    <Content Include="Assets\Piano Assets\X E Key.png" />
+    <Content Include="Assets\Piano Assets\X F Key.png" />
+    <Content Include="Assets\Piano Assets\X G Key.png" />
+    <Content Include="Assets\Piano Assets\X Sharp Key.png" />
     <Content Include="Assets\SplashScreen.scale-100.png" />
     <Content Include="Assets\SplashScreen.scale-140.png" />
     <Content Include="Assets\SplashScreen.scale-240.png" />

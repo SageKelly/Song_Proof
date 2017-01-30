@@ -109,6 +109,7 @@ namespace SongProofWP8.Pages
         ProgressTrackerControl ptc;
         SessionButtonsControl sbc;
         HW3ProgressTrackerControl hptc;
+        PianoKeyControl pkc;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -206,7 +207,7 @@ namespace SongProofWP8.Pages
             switch (DataHolder.ProofType)
             {
                 case DataHolder.ProofingTypes.PlacingTheNote:
-                    PianoKeyControl pkc = new PianoKeyControl(curSession.Piano, curSession.ScaleUsed.Notes, "NoteClick", this, typeof(SessionPage));
+                    pkc = new PianoKeyControl(curSession.Piano, curSession.ScaleUsed.Notes, "NoteClick", this, typeof(SessionPage));
                     LayoutRoot.Children.Add(pkc);
                     Grid.SetRow(pkc, 2);
                     pkc.InstallControl(ptc);
@@ -271,14 +272,29 @@ namespace SongProofWP8.Pages
 
         private void StyleButton(Button b, bool correct)
         {
-            if (lastStyledButton != null)
+            switch (DataHolder.ProofType)
             {
-                lastStyledButton.Background = DefaultBrush;
+                case DataHolder.ProofingTypes.PlacingTheNote:
+                    if (lastStyledButton != null)
+                    {
+                        pkc.StyleButton(lastStyledButton, true);
+                    }
+
+                    pkc.StyleButton(b, false, correct);
+
+                    lastStyledButton = b;
+                    break;
+                default:
+                    if (lastStyledButton != null)
+                    {
+                        lastStyledButton.Background = DefaultBrush;
+                    }
+
+                    b.Background = correct ? CheckBrush : XBrush;
+
+                    lastStyledButton = b;
+                    break;
             }
-
-            b.Background = correct ? CheckBrush : XBrush;
-
-            lastStyledButton = b;
         }
 
         #region Placing The Note
@@ -308,8 +324,7 @@ namespace SongProofWP8.Pages
                 if (b != null && !ptc.CountingDown)
                 {
                     //give the note the button's value
-                    string note = b.Content.ToString();
-                    ;
+                    string note = b.Tag.ToString();
                     int noteIndex = curSession.ProofingData[curIndex];
                     //use that value to check to see if it was the
                     //right one to press for the current note
