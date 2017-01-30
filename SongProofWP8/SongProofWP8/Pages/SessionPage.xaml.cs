@@ -2,11 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Graphics.Display;
 using Windows.Phone.UI.Input;
 using Windows.UI;
 using Windows.UI.Xaml;
@@ -17,7 +19,6 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
-
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
 
 namespace SongProofWP8.Pages
@@ -143,10 +144,20 @@ namespace SongProofWP8.Pages
             curIndex = -1;
 
             incrementor = 0;
+            try
+            {
 
-            SetTitleText();
-            SetupProgressTracker();
-            SetupButtons();
+                SetTitleText();
+                SetupProgressTracker();
+                SetupButtons();
+                SetScreenOrientation();
+            }
+            catch (Exception ex)
+            {
+                string exception = DataHolder.GetInnerException(ex);
+                Debug.WriteLine(exception);
+                throw ex;
+            }
 
 
             sbc = new SessionButtonsControl("B_Start_Click", "B_Quit_Click", "B_ViewResults_Click", this, typeof(SessionPage));
@@ -209,7 +220,7 @@ namespace SongProofWP8.Pages
                     PianoKeyControl pkc = new PianoKeyControl(curSession.Piano, curSession.ScaleUsed.Notes, "NoteClick", this, typeof(SessionPage));
                     LayoutRoot.Children.Add(pkc);
                     Grid.SetRow(pkc, 2);
-                    pkc.InstallInCenter(ptc);
+                    pkc.InstallControl(ptc);
                     break;
                 case DataHolder.ProofingTypes.HW3:
                     HW3ButtonsControl hbc = new HW3ButtonsControl(IH, IW, I3, "IntervalClick", this, typeof(SessionPage));
@@ -228,6 +239,32 @@ namespace SongProofWP8.Pages
                     break;
                 case DataHolder.ProofingTypes.HW3:
                     curSession.StoreData(index, correct, curSession.Diff.GetHashCode() - hptc.RemainingTime);
+                    break;
+            }
+        }
+
+        private void SetScreenOrientation()
+        {
+            switch (DataHolder.ProofType)
+            {
+                case DataHolder.ProofingTypes.Dummy:
+                    break;
+                case DataHolder.ProofingTypes.BuildTheScale:
+                    break;
+                case DataHolder.ProofingTypes.PlacingTheNote:
+                    DisplayInformation.AutoRotationPreferences = DisplayOrientations.Landscape;
+                    break;
+                case DataHolder.ProofingTypes.FindTheVoice:
+                    break;
+                case DataHolder.ProofingTypes.BuildTheChord:
+                    break;
+                case DataHolder.ProofingTypes.HW3:
+                    break;
+                case DataHolder.ProofingTypes.GrabBag:
+                    break;
+                case DataHolder.ProofingTypes.ScaleWriting:
+                    break;
+                default:
                     break;
             }
         }
