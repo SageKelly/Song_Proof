@@ -52,9 +52,11 @@ namespace SongProofWP8
             Zen = 0
         }
 
-        public static string[] PianoSharp = new string[] { "C", "C♯", "D", "D♯", "E", "F", "F♯", "G", "G♯", "A", "A♯", "B" };
-        public static string[] PianoFlat = new string[] { "C", "D♭", "D", "E♭", "E", "F", "G♭", "G", "A♭", "A", "B♭", "B" };
-        //A♯ / B♭
+        public const string SHARP = "♯";
+        public const string FLAT = "♭";
+
+        public static string[] PianoSharp = new string[] { "C", "C" + SHARP, "D", "D" + SHARP, "E", "F", "F" + SHARP, "G", "G" + SHARP, "A", "A" + SHARP, "B" };
+        public static string[] PianoFlat = new string[] { "C", "D" + FLAT, "D", "E" + FLAT, "E", "F", "G" + FLAT, "G", "A" + FLAT, "A", "B" + FLAT, "B" };
 
         public static Dictionary<ScaleTypes, string> ScaleNames;
         public static Dictionary<ScaleTypes, string> ScaleLib;

@@ -1,6 +1,7 @@
 ﻿using SongProofWP8.Common;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -112,6 +113,7 @@ namespace SongProofWP8.Pages
         /// handlers that cannot cancel the navigation request.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            DisplayInformation.AutoRotationPreferences = DisplayOrientations.Portrait;
             this.navigationHelper.OnNavigatedTo(e);
         }
 
@@ -124,7 +126,17 @@ namespace SongProofWP8.Pages
 
         private void BStart_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(SessionPage));
+            try
+            {
+                Frame.Navigate(typeof(SessionPage));
+            }
+            catch (Exception ex)
+            {
+                string exception = DataHolder.GetInnerException(ex);
+                throw ex;
+            }
         }
+
+
     }
 }
