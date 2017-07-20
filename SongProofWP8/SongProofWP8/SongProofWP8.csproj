@@ -83,7 +83,10 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Classes\Chord.cs" />
+    <Compile Include="Classes\ChordAdd.cs" />
+    <Compile Include="Classes\ChordInversion.cs" />
     <Compile Include="Classes\ChordModifier.cs" />
+    <Compile Include="Classes\ChordRemove.cs" />
     <Compile Include="Classes\ChordResources.cs" />
     <Compile Include="Common\NavigationHelper.cs" />
     <Compile Include="Common\ObservableDictionary.cs" />
